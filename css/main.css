@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    @apply
+    duration-[400ms]
+    ease-in-out
+}
+
+.page-enter-active,
+.page-leave-active {
+  @apply
+  duration-[400ms]
+  
+}
+.page-enter-from,
+.page-leave-to {
+    @apply
+    opacity-0
+    blur-md
+}
