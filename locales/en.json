@@ -1,0 +1,75 @@
+{
+    "app": {
+        "language": {
+            "title": "Language",
+            "tr": "Turkish",
+            "en": "English"
+        },
+        "theme": "Theme",
+        "menu": [
+            { "href": "#about", "name": "About" },
+            { "href": "#goals", "name": "Goals" },
+            { "href": "#projects", "name": "Projects" },
+            { "href": "#tools", "name": "Tools" }
+        ]
+    },
+    "hero": {
+        "title": "Hello, I'm Muhammed Furkan",
+        "text": "I am a computer engineer who is constantly striving to improve myself in the software and web world.",
+        "button": {
+            "cv": {
+                "title": "CV",
+                "href": "/mfa-cv-eng.pdf"
+            },
+            "about": "About Me"
+        }
+    },
+    "about": {
+        "title": "About Me",
+        "text": "<p>Hello! I'm Muhammed Furkan, a software developer. I took my first steps into the world of software development in 2021, and since then, I have been continuously striving to improve myself.</p><p>My hunger for learning drives me to explore new technologies and stay updated with the latest trends. I embrace an agile and flexible approach to keep up with the ever-evolving software systems.</p><p>I focus on full-stack web projects and have nearly 2 years of experience in backend development using powerful frameworks like Laravel. Additionally, I'm learning and using modern technologies like Vue and Nuxt to make my applications more impressive. I also utilize various tools to enhance my skills in the DevOps field.</p>"
+    },
+    "goal": {
+        "title": "My Goals",
+        "summary": "You can explore my experiences and goals.",
+        "items": [
+            {
+                "title": "Algorithmic Mastery",
+                "text": "<p>I believe that understanding algorithms goes beyond just knowing their syntax. Therefore, I am constantly striving to improve my algorithmic problem-solving skills. In line with this, I continuously work on enhancing the quality of my code and making it adhere to SOLID principles. My goal is to write code in a way that aligns with design patterns.</p>",
+                "icon": "rocket"
+            },
+            {
+                "title": "Compatibility & Work Discipline",
+                "text": "<p>I believe that the software world is not just about coding and developing algorithms. I strive to maintain harmony with my colleagues and value knowledge sharing. I particularly enjoy asking questions about topics or structures that I believe can contribute to my growth</p>",
+                "icon": "code"
+            },
+            {
+                "title": "Best Practice",
+                "text": "<p>After learning a new language or framework and working on small projects with it, I aim to establish the project structure following Best Practices by conducting research on the internet. This ensures that I avoid difficulties in project updates and additions, especially for projects that can be released as products or reach users. In line with this, I separate my backend and frontend projects and aim to embrace the microservices architecture, striving to professionalize my projects.</p>",
+                "icon": "puzzle-piece"
+            },
+            {
+                "title": "Devops and Server Worlds",
+                "text": "<p>I am working on managing my own servers using services like Digital Ocean, similar to AWS. By utilizing technologies such as Nginx, Redis, and reverse proxy in the Linux world, I am improving my knowledge in server management. For backend development, I aim to utilize these Linux servers while hosting my frontend projects with deployment tools like Vercel and Netlify. Furthermore, I plan to separate my frontend and backend projects completely. In the future, I intend to learn Docker and similar technologies to achieve platform independence</p>",
+                "icon": "server"
+            },
+            {
+                "title": "Packaging and Open-Source Software",
+                "text": "<p>My goal is to package commonly used code snippets and libraries into reusable modules and publish them on package managers like Node and Composer. This way, I can expedite project development and release general updates independently from individual projects. Additionally, I aim to share automation and web projects on GitHub as open-source contributions that can assist and benefit the community.</p>",
+                "icon": "cubes"
+            },
+            {
+                "title": "Data Optimization",
+                "text": "<p>I believe that database design is the most critical stage in backend development. Therefore, when planning a project, I prioritize database design and data relationships. In the future, I aim to integrate my projects with Artificial Intelligence and data mining, focusing on data optimization and ensuring data accuracy. My university experience in data classification projects, as well as my exploration of topics like Full Text Search and Elastic Search, have provided strong foundations for achieving this goal.</p>",
+                "icon": "database"
+            }
+        ]
+    },
+    "project": {
+        "title": "My Projects",
+        "summary": "You can explore the projects I have undertaken to enhance my skills using the experiences gained during my academic studies and work"
+    },
+    "tool": {
+        "title": "Tools",
+        "summary": "You can see the technologies and tools I used below."
+    }
+}

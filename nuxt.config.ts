@@ -15,9 +15,12 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  modules: ['@nuxtjs/color-mode', 'nuxt-swiper'],
+  modules: ['@nuxtjs/color-mode', 'nuxt-swiper', '@nuxtjs/i18n'],
+  i18n: {
+    vueI18n: './i18n.config.ts'
+  },
   colorMode: {
-    preference: 'system', // default theme
+    preference: 'night', // default theme
     dataValue: 'theme', // activate data-theme in <html> tag
     classSuffix: '',
   }
