@@ -7,5 +7,6 @@
         <Hero/>
         <About/>
         <Goal/>
+        <Project/>
     </NuxtLayout>
 </template>
