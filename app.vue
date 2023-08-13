@@ -8,5 +8,6 @@
         <About/>
         <Goal/>
         <Project/>
+        <Tool/>
     </NuxtLayout>
 </template>
