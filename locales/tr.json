@@ -34,32 +34,55 @@
         "items": [
             {
                 "title": "Algoritmik Ustalık",
-                "text": "<p>Algoritmaların sadece sözdizimini bilmekten daha önemli olduğunu düşünüyorum. Bu nedenle, algoritma kurma becerimi sürekli olarak geliştirmeye çalışıyorum. Bu doğrultuda kod kalitemi sürekli geliştirmeye çalışıyor, SOLID prensiplerine uygun hale getirmek için çabalıyorum. Hedefim yazdığım kodları tasarım desenlerine uygun bir biçimde yazmak</p>",
+                "content": [
+                    "Algoritmaların sadece sözdizimini bilmekten daha önemli olduğunu düşünüyorum.",
+                    "Bu nedenle, algoritma kurma becerimi sürekli olarak geliştirmeye çalışıyorum." ,
+                    "Bu doğrultuda kod kalitemi sürekli geliştirmeye çalışıyor, SOLID prensiplerine uygun hale getirmek için çabalıyorum.", "Hedefim yazdığım kodları tasarım desenlerine uygun bir biçimde yazmak"
+                ],
                 "icon": "rocket"
             },
             {
                 "title": "Uyumluluk ve İş Disiplini",
-                "text": "<p>Yazılım dünyasının kod yazmaktan ve algoritma geliştirmekten ibaret olmadığını düşünüyorum. İş arkadaşlarımla uyumlu olmaya çalışıyor ve bilgi aktarımına önem veriyorum. Özellikle beni geliştirebileceğini düşündüğüm bir konu veya yapı hakkında sorular sormayı oldukça seviyorum.</p>",
+                "content": [
+                    "Yazılım dünyasının kod yazmaktan ve algoritma geliştirmekten ibaret olmadığını düşünüyorum.",
+                    "İş arkadaşlarımla uyumlu olmaya çalışıyor ve bilgi aktarımına önem veriyorum.",
+                    "Özellikle beni geliştirebileceğini düşündüğüm bir konu veya yapı hakkında sorular sormayı oldukça seviyorum."
+                ],
                 "icon": "code"
             },
             {
                 "title": "Best Practice",
-                "text": "<p>Yeni bir dil veya framework öğrenip onunla ilgili küçük projeler yaptıktan sonra özellikle ürün olarak çıkabilecek veya kullanıcıya ulaşabilecek projelerde  proje güncellemelerinde, eklemelerinde sıkıntı çekmemek amacıyla internetten araştırarak yapıyı Best Practise (En İyi Yöntem) şeklinde kurmaya çalışıyorum. Bu doğrultuda backend ve frontend projelerimi ayırıp mikro mimari dünyasına girmeyi amaçlıyor ve projelerimi profesyonelleştirmeye çalışıyorum.</p>",
+                "content": [
+                    "Yeni bir dil veya framework öğrenip onunla ilgili küçük projeler yaptıktan sonra özellikle ürün olarak çıkabilecek veya kullanıcıya ulaşabilecek projelerde proje güncellemelerinde, eklemelerinde sıkıntı çekmemek amacıyla internetten araştırarak yapıyı Best Practise (En İyi Yöntem) şeklinde kurmaya çalışıyorum.",
+                    "Bu doğrultuda backend ve frontend projelerimi ayırıp mikro mimari dünyasına girmeyi amaçlıyor ve projelerimi profesyonelleştirmeye çalışıyorum."
+                ],
                 "icon": "puzzle-piece"
             },
             {
                 "title": "Devops ve Sunucu Dünyası",
-                "text": "<p>AWS benzeri, Digital Ocean gibi servislerle kendi sunucularımı yönetmeye çalışıyorum. Nginx, redis, reverse proxy teknolojilerini Linux dünyasında kullanarak sunucular ve sunucu yönetimi hakkında kendimi geliştiriyorum. Backend için bu Linux sunucuları kullanıp frontend projelerimi Vercel ve Netify gibi deploy araçları ile barındırmayı hedefliyor ve frontend ve backend projeleri tamamen ayırmayı planlıyorum. Gelecekte Docker ve benzeri teknolojileri öğrenerek platform bağımsızlığını amaçlamaktayım.</p>",
+                "content": [
+                    "AWS benzeri, Digital Ocean gibi servislerle kendi sunucularımı yönetmeye çalışıyorum. Nginx, redis, reverse proxy teknolojilerini Linux dünyasında kullanarak sunucular ve sunucu yönetimi hakkında kendimi geliştiriyorum.",
+                    "Backend için bu Linux sunucuları kullanıp frontend projelerimi Vercel ve Netify gibi deploy araçları ile barındırmayı hedefliyor ve frontend ve backend projeleri tamamen ayırmayı planlıyorum.",
+                    "Gelecekte Docker ve benzeri teknolojileri öğrenerek platform bağımsızlığını amaçlamaktayım."
+                ],
                 "icon": "server"
             },
             {
                 "title": "Paketleme ve Açık kaynak Yazılımlar",
-                "text": "<p>Tekrar tekrar kullandığım kodları birer paket haline getirip bunları node ve composer gibi paket yöneticilerinde yayınlamayı amaçlıyorum. Bu şekilde projeleri daha hızlı çıkarabilir ve genel değişiklikleri projelerden bağımsız olarak topluca yayınlayabilirim. Ek olarak Github'da açık kaynak insanlara yardımcı olabilecek otomasyon ve web projeleri yayınlamayı hedeflemekteyim.</p>",
+                "content": [
+                    "Tekrar tekrar kullandığım kodları birer paket haline getirip bunları node ve composer gibi paket yöneticilerinde yayınlamayı amaçlıyorum.",
+                    "Bu şekilde projeleri daha hızlı çıkarabilir ve genel değişiklikleri projelerden bağımsız olarak topluca yayınlayabilirim.",
+                    "Ek olarak Github'da açık kaynak insanlara yardımcı olabilecek otomasyon ve web projeleri yayınlamayı hedeflemekteyim."
+                ],
                 "icon": "cubes"
             },
             {
                 "title": "Veri Optimizasyonu",
-                "text": "<p>Veri tabanı tasarımının Backend'deki en önemli aşama olduğunu düşünüyorum. Bu yüzden bir proje kurgularken veritabanı tasarımına ve veri ilişkisine oldukça önem veriyorum. Gelecekte projelerimi Yapay zeka ve veri madenciliği ile harmanlayıp veri optimizasyonu ve verilerin doğruluğunu amaçlamaktayım. Bu amaçta üniversitede yaptığım veri sınıflandırması projesi ile sonrasında deneyimlediğim Full Text Search ve Elastic Search gibi konular bu amacımda güzel temeller oldular.</p>",
+                "content": [
+                    "Veri tabanı tasarımının Backend'deki en önemli aşama olduğunu düşünüyorum. Bu yüzden bir proje kurgularken veritabanı tasarımına ve veri ilişkisine oldukça önem veriyorum.",
+                    "Gelecekte projelerimi Yapay zeka ve veri madenciliği ile harmanlayıp veri optimizasyonu ve verilerin doğruluğunu amaçlamaktayım.",
+                    "Bu amaçta üniversitede yaptığım veri sınıflandırması projesi ile sonrasında deneyimlediğim Full Text Search ve Elastic Search gibi konular bu amacımda güzel temeller oldular."
+                ],
                 "icon": "database"
             }
         ]

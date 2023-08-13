@@ -34,32 +34,56 @@
         "items": [
             {
                 "title": "Algorithmic Mastery",
-                "text": "<p>I believe that understanding algorithms goes beyond just knowing their syntax. Therefore, I am constantly striving to improve my algorithmic problem-solving skills. In line with this, I continuously work on enhancing the quality of my code and making it adhere to SOLID principles. My goal is to write code in a way that aligns with design patterns.</p>",
+                "content": [
+                    "I believe that understanding algorithms goes beyond just knowing their syntax.",
+                    "As a result, I continuously strive to improve my algorithmic problem-solving skills.",
+                    "In this direction, I consistently work to enhance the quality of my code and make it compliant with SOLID principles.",
+                    "My goal is to write code in alignment with design patterns."
+                ],
                 "icon": "rocket"
             },
             {
-                "title": "Compatibility & Work Discipline",
-                "text": "<p>I believe that the software world is not just about coding and developing algorithms. I strive to maintain harmony with my colleagues and value knowledge sharing. I particularly enjoy asking questions about topics or structures that I believe can contribute to my growth</p>",
+                "title": "Compatibility and Work Discipline",
+                "content": [
+                    "In the software world, I think it's essential to realize that software development is not limited to coding and algorithm development.",
+                    "I aim to collaborate harmoniously with colleagues and prioritize knowledge sharing.",
+                    "Especially, I enjoy asking questions about topics or structures that I believe can help me improve."
+                ],
                 "icon": "code"
             },
             {
-                "title": "Best Practice",
-                "text": "<p>After learning a new language or framework and working on small projects with it, I aim to establish the project structure following Best Practices by conducting research on the internet. This ensures that I avoid difficulties in project updates and additions, especially for projects that can be released as products or reach users. In line with this, I separate my backend and frontend projects and aim to embrace the microservices architecture, striving to professionalize my projects.</p>",
+                "title": "Best Practices",
+                "content": [
+                    "After learning a new language or framework and working on small projects with it, I focus on structuring my work according to best practices to avoid issues during updates or additions, especially when targeting user-facing or production projects.",
+                    "In this context, I aim to separate my backend and frontend projects, adopting a microservices architecture, and I work to enhance the professionalism of my projects."
+                ],
                 "icon": "puzzle-piece"
             },
             {
-                "title": "Devops and Server Worlds",
-                "text": "<p>I am working on managing my own servers using services like Digital Ocean, similar to AWS. By utilizing technologies such as Nginx, Redis, and reverse proxy in the Linux world, I am improving my knowledge in server management. For backend development, I aim to utilize these Linux servers while hosting my frontend projects with deployment tools like Vercel and Netlify. Furthermore, I plan to separate my frontend and backend projects completely. In the future, I intend to learn Docker and similar technologies to achieve platform independence</p>",
+                "title": "DevOps and Server Realm",
+                "content": [
+                    "I'm working on managing my own servers using services like AWS and Digital Ocean. I'm improving my skills in Linux server management, including technologies like Nginx, Redis, and reverse proxy.",
+                    "For backend tasks, I utilize these Linux servers while using deployment tools like Vercel and Netlify for my frontend projects. I'm planning to completely separate frontend and backend projects.",
+                    "In the future, I plan to learn technologies like Docker to achieve platform independence."
+                ],
                 "icon": "server"
             },
             {
-                "title": "Packaging and Open-Source Software",
-                "text": "<p>My goal is to package commonly used code snippets and libraries into reusable modules and publish them on package managers like Node and Composer. This way, I can expedite project development and release general updates independently from individual projects. Additionally, I aim to share automation and web projects on GitHub as open-source contributions that can assist and benefit the community.</p>",
+                "title": "Packaging and Open Source Software",
+                "content": [
+                    "I intend to package frequently used code snippets into packages and distribute them using package managers like Node.js and Composer.",
+                    "This approach aims to expedite project development and enable bulk updates independently of individual projects.",
+                    "Furthermore, I aspire to release automation and web projects on GitHub that can be beneficial to the open-source community."
+                ],
                 "icon": "cubes"
             },
             {
                 "title": "Data Optimization",
-                "text": "<p>I believe that database design is the most critical stage in backend development. Therefore, when planning a project, I prioritize database design and data relationships. In the future, I aim to integrate my projects with Artificial Intelligence and data mining, focusing on data optimization and ensuring data accuracy. My university experience in data classification projects, as well as my exploration of topics like Full Text Search and Elastic Search, have provided strong foundations for achieving this goal.</p>",
+                "content": [
+                    "I consider database design as a pivotal stage in backend development. Therefore, I emphasize database design and data relationships when planning a project.",
+                    "In the future, I plan to merge projects with Artificial Intelligence and data mining, focusing on data optimization and data accuracy.",
+                    "In this endeavor, my university project involving data classification, coupled with my experience in areas like Full Text Search and Elastic Search, provides a solid foundation."
+                ],
                 "icon": "database"
             }
         ]

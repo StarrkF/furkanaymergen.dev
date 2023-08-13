@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
+body {
     @apply
     duration-[400ms]
     ease-in-out

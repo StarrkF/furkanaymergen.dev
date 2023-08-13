@@ -1,5 +1,5 @@
 <template>
-    <div class="navbar bg-base-200 md:text-lg font-bold backdrop-blur-md bg-opacity-50 fixed">
+    <div class="navbar bg-base-200 z-[99999] md:text-lg font-bold backdrop-blur-md bg-opacity-50 fixed">
         <div class="navbar-start">
             <div class="dropdown">
                 <label tabindex="0" class="btn btn-ghost lg:hidden">
