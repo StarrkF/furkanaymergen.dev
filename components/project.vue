@@ -14,11 +14,10 @@ const ap = {
 
 <template>
     <section id="projects" class="min-h-screen bg-base-200 px-6 md:px-20 lg:px-32">
-        <h2
-            class="text-4xl md:text-6xl py-16 md:pt-28 font-mono tracking-widest mx-auto pb-4 md:pb-8 border-b border-secondary whitespace-nowrap max-w-min text-secondary">{{ $t('project.title') }}</h2>
-
+        <h2 class="text-4xl md:text-6xl py-16 md:pt-28 font-mono tracking-widest mx-auto pb-4 md:pb-8 border-b border-secondary whitespace-nowrap max-w-min text-secondary">{{ $t('project.title') }}</h2>
+            <h3 class="text-2xl md:text-4xl w-full md:w-1/2  my-10 md:my-20 text-center mx-auto">{{ $t('project.summary') }}</h3>
             <swiper
-                class="w-full py-40 mt-20 overflow-hidden"
+                class="w-full py-40 overflow-hidden"
                 :grabCursor="true"
                 effect="coverflow"
                 :modules="[SwiperEffectCoverflow, SwiperAutoplay]"
