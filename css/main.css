@@ -12,7 +12,7 @@ body {
 .page-leave-active {
   @apply
   duration-[400ms]
-  
+
 }
 .page-enter-from,
 .page-leave-to {
