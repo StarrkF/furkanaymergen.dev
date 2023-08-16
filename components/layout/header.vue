@@ -1,5 +1,5 @@
 <template>
-    <div class="navbar bg-base-200 z-[99999] md:text-lg font-bold backdrop-blur-md bg-opacity-50 fixed">
+    <div class="navbar bg-base-200 z-[99999] font-bold backdrop-blur-md bg-opacity-50 fixed">
         <div class="navbar-start">
             <div class="dropdown">
                 <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -10,16 +10,16 @@
                 </label>
                 <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                     <li v-for="item in $tm('app.menu')">
-                        <a :href="item.href" v-smooth-scroll>{{ item.name }}</a>
+                        <a :href="item.href" class="text-xl normal-case " v-smooth-scroll>{{ item.name }}</a>
                     </li>
                 </ul>
             </div>
-            <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
+            <a class="btn btn-ghost text-primary normal-case text-2xl">mfa</a>
         </div>
         <div class="navbar-center hidden lg:flex">
-            <ul class="menu menu-horizontal px-1">
+            <ul class="menu menu-horizontal">
                 <li v-for="item in $tm('app.menu')">
-                    <a :href="item.href" v-smooth-scroll>{{ item.name }}</a>
+                    <a :href="item.href" class="text-2xl tracking-widest   lg:text-xl lg:mx-2 xl:mx-10 hover:text-primary" v-smooth-scroll>{{ item.name }}</a>
                 </li>
             </ul>
         </div>
@@ -50,7 +50,7 @@
                     <label tabindex="0" class="btn m-1">{{ $t('app.theme') }}</label>
                     <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                         <li v-for="theme of themes" :key="theme">
-                            <a class=" hover:cursor-pointer capitalize" @click="setTheme(theme)">{{ theme }}</a>
+                            <a class="hover:cursor-pointer capitalize" @click="setTheme(theme)">{{ theme }}</a>
                         </li>
                     </ul>
                 </div>
@@ -76,11 +76,5 @@ const themes = [
     'corporate',
     'synthwave',
     'halloween',
-    'garden',
-    'forest',
-    'fantasy',
-    'black',
-    'coffee',
-    'winter',
 ];
 </script>

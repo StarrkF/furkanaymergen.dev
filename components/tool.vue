@@ -2,26 +2,28 @@
 const ap = {
     delay: 1000,
     pauseOnMouseEnter: true,
-    disableOnInteraction: false,
 }
 
 const bp = {
-    '768': {
-        slidesPerView: 3
+    768: {
+      slidesPerView: 3
+    },
+    1366: {
+      slidesPerView: 4
     }
 }
 </script>
 
 <template>
     <section id="tools" class="min-h-screen bg-base-200 px-6 md:px-20 lg:px-32">
-        <h2 class="text-4xl md:text-6xl py-16 md:pt-28 font-mono tracking-widest mx-auto pb-4 md:pb-8 border-b border-warning whitespace-nowrap max-w-min text-warning">{{ $t('tool.title') }}</h2>
-            <h3 class="text-2xl md:text-4xl w-full md:w-1/2  my-10 md:my-20 text-center mx-auto">{{ $t('tool.summary') }}</h3>
+            <section-title>{{ $t('tool.title') }}</section-title>
+            <h3 class="text-2xl md:text-4xl w-full md:w-1/2  my-20 md:my-20 text-center mx-auto">{{ $t('tool.summary') }}</h3>
             <swiper
                 :grabCursor="true"
                 :modules="[SwiperAutoplay, SwiperFreeMode]"
                 :slidesPerView="2"
+                :space-between="20"
                 :loop="true"
-                :freemode="true"
                 :breakpoints="bp"
                 :autoplay="ap">
                 <swiper-slide>
@@ -56,11 +58,6 @@ const bp = {
 </template>
 
 <style scoped>
-.swiper-slide {
-    @apply
-    flex
-    justify-center
-}
 
 .swiper-slide svg {
     @apply
@@ -70,6 +67,6 @@ const bp = {
     text-primary
     ease-in-out
     max-w-[200px]
-    xl:max-w-[400px]
+    lg:max-w-[350px]
 }
 </style>
