@@ -6,7 +6,8 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' }
   },
   plugins: [
-    { src: '~/plugins/smooth-scroll.js', ssr: false}, // Yolu ve modu düzenlemeyi unutmayın
+    { src: '~/plugins/smooth-scroll.js', ssr: false},
+    { src: '~/plugins/aos.js', mode: 'client'}
   ],
   css: ['~/assets/css/main.css'],
   postcss: {

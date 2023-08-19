@@ -1,17 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&family=Black+Ops+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-    @apply duration-500 ease-linear
+    @apply
+    duration-[400ms]
+    ease-in-out
 }
 
 .page-enter-active,
 .page-leave-active {
-    @apply duration-300
-}
+  @apply
+  duration-[400ms]
 
+}
 .page-enter-from,
 .page-leave-to {
-    @apply opacity-0 blur-md
+    @apply
+    opacity-0
+    blur-md
 }
+
+::-webkit-scrollbar {
+    @apply
+    w-2
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply
+    bg-slate-700
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply
+    bg-black
+    rounded-xl
+    hover:bg-slate-800
+  }
+
+  .btn {
+    @apply
+    font-blackops
+    font-thin
+  }

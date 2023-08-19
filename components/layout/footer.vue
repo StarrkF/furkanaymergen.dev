@@ -1,6 +1,6 @@
 <template>
 	<footer
-		class="footer footer-center py-2 bg-base-200 z-[9999] md:text-lg font-bold backdrop-blur-md bg-opacity-50 fixed bottom-0">
+		class="footer footer-center py-2 z-[9999] md:text-lg font-bold backdrop-blur-md bg-opacity-40 fixed bottom-0">
 		<div class="flex justify-between space-x-12">
 			<a rel="noopener noreferrer" href="#"
 				class="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 dark:bg-violet-400 dark:text-gray-900">
@@ -43,4 +43,6 @@
 			</svg>
 		</a>
 	</div>
-</footer></template>
+</footer>
+
+</template>

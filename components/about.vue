@@ -1,9 +1,9 @@
 <template>
-    <section id="about" class="min-h-screen bg-base-200 px-6">
+    <section id="about" class="min-h-screen px-6 bg-base-200">
         <section-title>{{ $t('about.title') }}</section-title>
-            <div class="flex flex-col md:flex-row mt-10 md:mt-20 items-center justify-center space-x-8 space-y-8 grayscale hover:grayscale-0 duration-500">
-                <img src="/images/about.png" class="max-w-xs md:max-w-xl mask mask-hexagon" />
-                <div class="text-lg md:text-2xl space-y-10 max-w-sm md:max-w-sm lg:max-w-2xl" v-html="$tm('about.text')"/>
+            <div class="flex flex-col items-center justify-center pb-10 space-x-8 space-y-8 duration-500 md:flex-row md:mt-20 grayscale hover:grayscale-0">
+                <img  data-aos="zoom-in" src="/images/about2.png" class="max-w-full md:w-1/2 lg:max-w-xl mask mask-hexagon" />
+                <div data-aos="fade-down" class="max-w-md space-y-10 text-lg md:w-1/2 md:max-w-sm lg:max-w-2xl" v-html="$tm('about.text')"/>
             </div>
     </section>
 </template>

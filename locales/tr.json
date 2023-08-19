@@ -14,7 +14,11 @@
         ]
     },
     "hero": {
-        "title": "Merhaba Ben Muhammed Furkan",
+        "title": [
+            "M.Furkan Aymergen",
+            "Bilgisayar Mühendisi",
+            "Fullstack Geliştirici"
+        ],
         "text": "Yazılım ve web dünyasında kendimi sürekli geliştirmeye çalışan bir bilgisayar mühendisiyim",
         "button": {
             "cv": {
@@ -66,7 +70,29 @@
     },
     "project": {
         "title": "Projelerim",
-        "summary": "Okulda yaptığım ve çalışma hatayımda tecrübe edindiklerimle kendimi geliştirmek için yağtığım projeleri inceleyebilirsiniz"
+        "summary": "sdfsdf",
+        "items": [
+            {
+                "title": "sdff",
+                "summary": "You can explore my experiences and goals.",
+                "link": "google"
+            },
+            {
+                "title": "Project 2",
+                "summary": "You can explore the projects I have undertaken to enhance my skills using the experiences gained during my academic studies and work",
+                "link": "google"
+            },
+            {
+                "title": "Project 4",
+                "summary": "You can see the technologies and tools I used below.",
+                "link": "google"
+            },
+            {
+                "title": "Project 5",
+                "summary": "Compatibility & Work Discipline",
+                "link": "google"
+            }
+        ]
     },
     "tool": {
         "title": "Araçlar",

@@ -14,7 +14,11 @@
         ]
     },
     "hero": {
-        "title": "Hello, I'm Muhammed Furkan",
+        "title": [
+            "M.Furkan Aymergen",
+            "Computer Engineer",
+            "Fullstack Developer"
+        ],
         "text": "I am a computer engineer who is constantly striving to improve myself in the software and web world.",
         "button": {
             "cv": {
@@ -66,7 +70,29 @@
     },
     "project": {
         "title": "My Projects",
-        "summary": "You can explore the projects I have undertaken to enhance my skills using the experiences gained during my academic studies and work"
+        "summary": "You can explore the projects I have undertaken to enhance my skills using the experiences gained during my academic studies and work",
+        "items": [
+            {
+                "title": "Project 1",
+                "summary": "You can explore my experiences and goals.",
+                "link": "google"
+            },
+            {
+                "title": "Project 2",
+                "summary": "You can explore the projects I have undertaken to enhance my skills using the experiences gained during my academic studies and work",
+                "link": "google"
+            },
+            {
+                "title": "Project 4",
+                "summary": "You can see the technologies and tools I used below.",
+                "link": "google"
+            },
+            {
+                "title": "Project 5",
+                "summary": "Compatibility & Work Discipline",
+                "link": "google"
+            }
+        ]
     },
     "tool": {
         "title": "Tools",

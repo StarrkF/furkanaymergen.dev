@@ -1,32 +1,34 @@
 <template>
-    <div class="navbar bg-base-200 z-[99999] font-bold backdrop-blur-md bg-opacity-50 fixed">
+    <div class="navbar z-[99999] font-bold backdrop-blur-md bg-opacity-40 fixed flex justify-between px-0 md:px-16">
         <div class="navbar-start">
             <div class="dropdown">
                 <label tabindex="0" class="btn btn-ghost lg:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
                     </svg>
                 </label>
                 <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                     <li v-for="item in $tm('app.menu')">
-                        <a :href="item.href" class="text-xl normal-case " v-smooth-scroll>{{ item.name }}</a>
+                        <a :href="item.href" class="text-xl font-oswald" v-smooth-scroll>{{ item.name }}</a>
                     </li>
                 </ul>
             </div>
-            <a class="btn btn-ghost text-primary normal-case text-2xl">mfa</a>
+            <div class="text-5xl font-thin font-blackops text-primary">
+                M.F.A
+            </div>
         </div>
-        <div class="navbar-center hidden lg:flex">
+        <div class="hidden navbar-center lg:flex">
             <ul class="menu menu-horizontal">
                 <li v-for="item in $tm('app.menu')">
-                    <a :href="item.href" class="text-2xl tracking-widest   lg:text-xl lg:mx-2 xl:mx-10 hover:text-primary" v-smooth-scroll>{{ item.name }}</a>
+                    <a :href="item.href" class="tracking-wider text-base-content font-oswald lg:text-xl lg:mx-2 xl:mx-6 hover:text-primary" v-smooth-scroll>{{ item.name }}</a>
                 </li>
             </ul>
         </div>
         <div class="navbar-end">
             <div class="flex items-center gap-2">
                 <div class="dropdown dropdown-hover dropdown-left">
-                    <label tabindex="0" class="btn m-1">{{ $t('app.language.title') }}</label>
+                    <label tabindex="0" class="m-1 duration-200 hover:cursor-pointer hover:text-primary">{{ $t('app.language.title') }}</label>
                     <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                         <li>
                             <div class="avatar" @click="setLocale('tr')">
@@ -47,10 +49,10 @@
                     </ul>
                 </div>
                 <div class="dropdown dropdown-hover dropdown-left">
-                    <label tabindex="0" class="btn m-1">{{ $t('app.theme') }}</label>
+                    <label tabindex="0" class="m-1 duration-200 hover:cursor-pointer hover:text-primary">{{ $t('app.theme') }}</label>
                     <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                         <li v-for="theme of themes" :key="theme">
-                            <a class="hover:cursor-pointer capitalize" @click="setTheme(theme)">{{ theme }}</a>
+                            <a class="capitalize hover:cursor-pointer" @click="setTheme(theme)">{{ theme }}</a>
                         </li>
                     </ul>
                 </div>
