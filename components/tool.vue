@@ -1,29 +1,36 @@
 <script setup>
 const ap = {
-    delay: 1000,
+    delay: 2000,
     pauseOnMouseEnter: true,
 }
 
 const bp = {
     768: {
-      slidesPerView: 3
+      slidesPerView: 3,
+      spaceBetween: 50
     },
-    1366: {
-      slidesPerView: 4
+    1024: {
+      slidesPerView: 4,
+      spaceBetween: 75
+    },
+    1536: {
+      slidesPerView: 5,
+      spaceBetween:100
     }
 }
 </script>
 
 <template>
-    <section id="tools" class="min-h-screen px-6 bg-base-200 md:px-20 lg:px-32">
+    <section id="tools" class="min-h-screen px-6 bg-base-100 md:px-20 lg:px-32">
             <section-title>{{ $t('tool.title') }}</section-title>
             <h3 data-aos="fade-down" class="w-full mx-auto my-20 text-2xl text-center md:text-4xl font-oswald md:w-1/2 md:my-20">{{ $t('tool.summary') }}</h3>
             <swiper
+            class="w-full mx-auto"
                 data-aos="fade-down"
                 :grabCursor="true"
                 :modules="[SwiperAutoplay, SwiperFreeMode]"
-                :slidesPerView="2"
-                :space-between="20"
+                :slidesPerView=2
+                :space-between=50
                 :loop="true"
                 :breakpoints="bp"
                 :autoplay="ap">
@@ -54,7 +61,6 @@ const bp = {
                     </svg>
                 </swiper-slide>
             </swiper>
-
     </section>
 </template>
 
@@ -67,7 +73,5 @@ const bp = {
     duration-500
     text-primary
     ease-in-out
-    max-w-[200px]
-    lg:max-w-[350px]
 }
 </style>

@@ -14,18 +14,18 @@ watchEffect(() => {
 })
 
 const ap = {
-    delay:11000,
+    delay:5000,
     pauseOnMouseEnter: true
 }
 
 const bp = {
-    768: {
+    1024: {
       slidesPerView: 2,
-      spaceBetween: 15
+      spaceBetween: 45
     },
-    1366: {
+    1546: {
       slidesPerView: 3,
-      spaceBetween: 20
+      spaceBetween: 90
     }
 }
 
@@ -36,17 +36,16 @@ const bp = {
         <section-title>{{ $t('project.title') }}</section-title>
             <h3 data-aos="fade-down" class="w-full mx-auto mt-10 text-2xl text-center font-oswald md:text-4xl md:w-1/2 md:my-20">{{ $t('project.summary') }}</h3>
             <swiper
+                data-aos="zoom-in"
                 class="w-full overflow-hidden"
                 :grabCursor="true"
                 effect="coverflow"
                 :modules="[SwiperEffectCoverflow, SwiperAutoplay]"
                 :slidesPerView=1
-                :spaceBetween="10"
                 :breakpoints="bp"
                 :loop="true"
-                :autoplay="ap"
-                :centeredSlides="false" >
-                <swiper-slide data-aos="zoom-out" class="relative inline-block group mask mask-squircle drop-shadow-2xl" v-for="(project, index) in projects" :key="index">
+                :autoplay="ap">
+                <swiper-slide  class="relative inline-block group mask mask-squircle drop-shadow-2xl" v-for="(project, index) in projects" :key="index">
                     <div @click="showDialog(index)" :title="project.title">
                         <img class="absolute block w-full h-full duration-500 bg-cover group-hover:scale-125" src="/images/project-bg.png" :alt="project.title" />
                         <div class="absolute flex items-center justify-center w-full h-full transition-all duration-500 ease-in-out -translate-x-1/2 -translate-y-1/2 opacity-0 bg-opacity-60 top-1/2 left-1/2 bg-base-300 group-hover:opacity-100">
@@ -74,7 +73,7 @@ const bp = {
 <style scoped>
 .swiper-slide {
     @apply
-    w-[600px]
-    h-[600px]
+    w-[500px]
+    h-[500px]
 }
 </style>
