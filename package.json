@@ -20,7 +20,6 @@
     "tailwindcss": "^3.3.3"
   },
   "dependencies": {
-    "@duskmoon/vue3-typed-js": "^0.0.4",
     "aos": "^2.3.4",
     "nuxt-swiper": "^1.2.0",
     "vue3-smooth-scroll": "^0.8.1"

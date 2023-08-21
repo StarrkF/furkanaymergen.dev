@@ -1,31 +1,53 @@
 <script setup>
-import { Typed } from "@duskmoon/vue3-typed-js";
 const { tm } = useI18n()
 const hero = ref(tm('hero'))
+const currentChar = ref('');
+const words = ref(hero.value.title)
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let typeTimeout = null;
 
+const typeEffect = () => {
 
-const options = ref({
-    strings: hero.value.title,
-    loop: true,
-    typeSpeed: 80,
-    showCursor: false,
-    backSpeed:40,
+  let currentWord = words.value[wordIndex];
+
+  if (!isDeleting && charIndex < currentWord.length) {
+    currentChar.value = currentWord.substring(0, charIndex + 1);
+    charIndex++;
+  } else if (isDeleting && charIndex > 0) {
+    currentChar.value = currentWord.substring(0, charIndex - 1);
+    charIndex--;
+  } else {
+    isDeleting = !isDeleting;
+    wordIndex = !isDeleting ? (wordIndex + 1) % words.value.length : wordIndex;
+  }
+
+  typeTimeout = setTimeout(typeEffect, isDeleting ? 200 : 300);
+
+};
+
+onMounted(() => {
+  typeEffect();
 });
 
 watchEffect(() => {
-    hero.value = tm('hero')
-    options.value.strings = hero.value.title
-})
+  clearTimeout(typeTimeout);
+  hero.value = tm('hero');
+  typeEffect();
+  words.value =  hero.value.title
+});
 
 </script>
 <template>
     <section id="home" class="min-h-screen hero bg-gradient-to-br from-base-300 via-secondary to-accent contrast-125">
         <div class="text-center hero-content text-neutral-content">
-            <div class="max-w-2xl">
-                <div data-aos="fade-down" class="mb-5 text-5xl md:text-6xl h-[70px] font-blackops text-base-content">
-                    <Typed :options="options">
-                        <h1 class="typing"></h1>
-                    </Typed>
+            <div class="max-w-2xl md:max-w-3xl">
+                <div data-aos="fade-down" class="mb-5 flex text-5xl md:text-6xl h-[70px] font-blackops text-base-content">
+                    <h1>
+                        {{ currentChar }}
+                        <span class="animate-blink">|</span>
+                    </h1>
                 </div>
                 <h3 data-aos="fade-up" class="mb-5 text-3xl font-light text-base-content font-oswald">{{ hero.text }}</h3>
                 <div data-aos="zoom-out" class="flex flex-wrap justify-center gap-4">

@@ -1,15 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
-  mode: 'jit',
-  purge: [
-    "./components/**/*.{js,vue,ts}",
-    "./layouts/**/*.vue",
-    "./pages/**/*.vue",
-    "./plugins/**/*.{js,ts}",
-    "./nuxt.config.{js,ts}",
-    "./app.vue",
-  ],
   content: [
     "./components/**/*.{js,vue,ts}",
     "./layouts/**/*.vue",
@@ -29,6 +20,15 @@ module.exports = {
         oswald: "Oswald, sans-serif",
         audiowide: "Audiowide, cursive",
         blackops: "Black Ops One, cursive"
+      },
+      keyframes: {
+        blink: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0' },
+        },
+      },
+      animation: {
+        blink: 'blink 700ms infinite',
       },
     }
   },
