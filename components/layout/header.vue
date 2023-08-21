@@ -67,7 +67,7 @@ const themes = [
                     <label tabindex="0" class="m-1 duration-200 hover:cursor-pointer hover:text-primary">{{ $t('app.theme') }}</label>
                     <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                         <li v-for="theme of themes" :key="theme">
-                            <a class="capitalize hover:cursor-pointer" @click="setTheme(theme)">{{ theme }}</a>
+                            <div class="capitalize hover:cursor-pointer" @click="setTheme(theme)">{{ theme }}</div>
                         </li>
                     </ul>
                 </div>
@@ -85,7 +85,7 @@ const themes = [
                         <label for="my-drawer" class="drawer-overlay"></label>
                         <ul class="menu p-4 w-1/2 md:w-1/3 h-full bg-base-200 text-base-content">
                             <li v-for="item in $tm('app.menu')">
-                                <a :href="item.href" class="text-xl font-oswald" v-smooth-scroll>{{ item.name }}</a>
+                                <a :href="item.href" alt="About" class="text-xl font-oswald" v-smooth-scroll>{{ item.name }}</a>
                             </li>
                         </ul>
                     </div>
