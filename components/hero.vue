@@ -43,7 +43,7 @@ watchEffect(() => {
     <section id="home" class="min-h-screen hero bg-gradient-to-br from-base-300 via-secondary to-accent contrast-125">
         <div class="text-center hero-content text-neutral-content">
             <div class="max-w-2xl md:max-w-3xl">
-                <div data-aos="fade-down" class="mb-5 flex text-5xl md:text-6xl h-[70px] font-blackops text-base-content">
+                <div data-aos="fade-down" class="mb-5 flex justify-center text-5xl md:text-6xl h-[70px] font-blackops text-base-content">
                     <h1>
                         {{ currentChar }}
                         <span class="animate-blink">|</span>
