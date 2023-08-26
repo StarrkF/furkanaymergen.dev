@@ -15,7 +15,7 @@
     },
     "hero": {
         "title": [
-            "M.Furkan Aymergen",
+            "Furkan Aymergen",
             "Bilgisayar Mühendisi",
             "Fullstack Geliştirici"
         ],
@@ -70,27 +70,47 @@
     },
     "project": {
         "title": "Projelerim",
-        "summary": "sdfsdf",
+        "summary": "Okulda yaptığım ve çalışma hatayımda tecrübe edindiklerimle kendimi geliştirmek için yağtığım projeleri inceleyebilirsiniz",
+        "button": {
+            "source": "Kaynak Kodu",
+            "preview": "Canlı Gösterim"
+        },
         "items": [
             {
-                "title": "sdff",
-                "summary": "You can explore my experiences and goals.",
-                "link": "google"
+                "title": "Teknoptik",
+                "summary": "Laravel'de kendimi geliştirmek için yaptığım web projesidir. Bu projede Laravel, Blade ve Ajax teknolojilerini kullandım",
+                "source_code": "https://github.com/StarrkF/teknoptik.com",
+                "link": "https://teknoptik.com/"
             },
             {
-                "title": "Project 2",
-                "summary": "You can explore the projects I have undertaken to enhance my skills using the experiences gained during my academic studies and work",
-                "link": "google"
+                "title": "Kişisel Portfolyo Sitesi",
+                "summary": "Frontend becerilerimi geliştirmek için yaptığım kişisel portfolyo projesidir.",
+                "source_code": "https://github.com/StarrkF/furkanaymergen.dev",
+                "link": "https://furkanaymergen.dev/"
             },
             {
-                "title": "Project 4",
-                "summary": "You can see the technologies and tools I used below.",
-                "link": "google"
+                "title": "Todo App",
+                "summary": "Frontend becerilerimi geliştirmek için yaptığım yapılacaklar listesi projesi. Projede Vue, Tailwind ve Git Action teknolojilerini kullandım",
+                "source_code": "https://github.com/StarrkF/dynamic-library",
+                "link": "https://starrkf.github.io/todo-vue-tailwind"
             },
             {
-                "title": "Project 5",
-                "summary": "Compatibility & Work Discipline",
-                "link": "google"
+                "title": "Kişisel Kitaplık projesi",
+                "summary": "Kitaplıktaki kitapların sınıflandırılması, filtrelenmesi ve görsel bir şekilde grafiğe dökülmesi için yapılan fullstack proje. Backend tarafında Laravel Frontend tarafında Vue, siteyi yayınlamak için ise Git Action kullanılmıştır. Site aktif olark kullanıldığı için sadece önizlemenin yapıldığı bir sistem yakında aktif edilecektir.",
+                "source_code": "https://github.com/StarrkF/dynamic-library",
+                "link": "https://furkanaymergen.site/"
+            },
+            {
+                "title": "LizardApp",
+                "summary": "Şu an aktif olarak yayında olmayan bir dil öğrenme uygulaması için yaptığım Rest Api servisi ve yönetim panelli freelance proje. Backen'de Laravel Api döümanı içinde Swagger kullandım. Site aktif olmadığı için projeyi gösterebileceğim bir demo sayfası yakında aktif olacaktır. Freelance proje olduğu için kaynak kodunu paylaşamıyorum.",
+                "source_code": "#",
+                "link": "#"
+            },
+            {
+                "title": "Adventurer Pixel 2d",
+                "summary": "Üniversite bitirme projesi olarak yaptığım 2 boyutlu platform oyunu projesi. Projede Unity ve C# teknojilerini kullandım.",
+                "source_code": "https://github.com/StarrkF/Adventurer-Pixel-2D-Graduation-Project",
+                "link": "#"
             }
         ]
     },

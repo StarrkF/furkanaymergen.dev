@@ -1,5 +1,5 @@
 <template>
-	<footer class="footer footer-center py-4 px-8 z-[9999] backdrop-blur-md bg-opacity-40 fixed bottom-0">
+	<footer class="footer footer-center py-4 px-8 z-[9999] backdrop-blur-md  bg-opacity-40 fixed bottom-0">
 		<div class="flex justify-between w-full md:max-w-md lg:max-w-2xl">
 			<SocialIcon href="https://github.com/StarrkF" title="GitHub">
 				<svg xmlns="http://www.w3.org/2000/svg" color="currentColor" viewBox="0 0 496 512">

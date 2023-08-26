@@ -40,19 +40,19 @@ watchEffect(() => {
 
 </script>
 <template>
-    <section id="home" class="min-h-screen hero bg-gradient-to-br from-base-300 via-secondary to-accent contrast-125">
+    <section id="home" class="min-h-screen hero bg-gradient-to-br from-base-100 via-base-200 to-base-300">
         <div class="text-center hero-content text-neutral-content">
-            <div class="max-w-2xl md:max-w-3xl">
-                <div data-aos="fade-down" class="mb-5 flex justify-center text-5xl md:text-6xl h-[70px] font-blackops text-base-content">
+            <div class="max-w-fit">
+                <div data-aos="fade-down" class="mb-5 flex justify-center text-5xl md:text-8xl min-h-[100px] font-blackops text-base-content">
                     <h1>
                         {{ currentChar }}
                         <span class="animate-blink">|</span>
                     </h1>
                 </div>
-                <h3 data-aos="fade-up" class="mb-5 text-3xl font-light text-base-content font-oswald">{{ hero.text }}</h3>
+                <h3 data-aos="fade-up" class="my-10  text-3xl md:text-4xl font-light text-base-content font-oswald">{{ hero.text }}</h3>
                 <div data-aos="zoom-out" class="flex flex-wrap justify-center gap-4">
-                    <button class="w-full text-3xl duration-200 shadow-xl sm:w-40 hover:scale-90 btn hover:shadow-glow hover:shadow-primary-focus btn-primary md:btn-lg">{{ hero.button.cv.title }}</button>
-                    <button class="w-full duration-200 shadow-xl sm:w-40 btn hover:scale-90 hover:shadow-glow hover:shadow-accent-focus btn-accent md:btn-lg">{{ hero.button.about }}</button>
+                    <a :href="hero.button.cv.href" :title="hero.button.cv.title" target="_blank" class="w-full text-3xl duration-200 shadow-lg sm:w-40 hover:scale-90 btn hover:shadow-xl btn-primary md:btn-lg">{{ hero.button.cv.title }}</a>
+                    <a href="#about" :title="$t('about.title')" class="w-full duration-200 shadow-lg sm:w-40 btn hover:scale-90 hover:shadow-xl  btn-accent md:btn-lg">{{ hero.button.about }}</a>
                 </div>
             </div>
         </div>

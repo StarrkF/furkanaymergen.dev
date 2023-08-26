@@ -1,9 +1,9 @@
 <script setup>
 const { locale } = useI18n()
 useHead({
-  title: 'M.Furkan Aymergen',
+  title: 'Furkan Aymergen',
   meta: [
-    { name: 'description', content: 'M.Furkan Aymergen, Bilgisayar Mühendisi ve Fullstack Web Developer' }
+    { name: 'description', content: 'Furkan Aymergen, Bilgisayar Mühendisi ve Fullstack Web Developer' }
   ],
   htmlAttrs: {
       lang: locale.value

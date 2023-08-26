@@ -15,7 +15,7 @@
     },
     "hero": {
         "title": [
-            "M.Furkan Aymergen",
+            "Furkan Aymergen",
             "Computer Engineer",
             "Fullstack Developer"
         ],
@@ -70,27 +70,47 @@
     },
     "project": {
         "title": "My Projects",
-        "summary": "You can explore the projects I have undertaken to enhance my skills using the experiences gained during my academic studies and work",
+        "summary": "You can review the projects I have undertaken to enhance myself with the experience gained from my school and work.",
+        "button": {
+            "source": "Source Code",
+            "preview": "Live Preview"
+        },
         "items": [
             {
-                "title": "Project 1",
-                "summary": "You can explore my experiences and goals.",
-                "link": "google"
+                "title": "Teknoptik",
+                "summary": "A web project I created to enhance my skills in Laravel. In this project, I used Laravel, Blade, and Ajax technologies.",
+                "source_code": "https://github.com/StarrkF/teknoptik.com",
+                "link": "https://teknoptik.com/"
             },
             {
-                "title": "Project 2",
-                "summary": "You can explore the projects I have undertaken to enhance my skills using the experiences gained during my academic studies and work",
-                "link": "google"
+                "title": "Personal Portfolio Website",
+                "summary": "A personal portfolio project I created to enhance my frontend skills.",
+                "source_code": "https://github.com/StarrkF/furkanaymergen.dev",
+                "link": "https://furkanaymergen.dev/"
             },
             {
-                "title": "Project 4",
-                "summary": "You can see the technologies and tools I used below.",
-                "link": "google"
+                "title": "Todo App",
+                "summary": "A to-do list project I created to enhance my frontend skills. In this project, I used Vue, Tailwind, and Git Action technologies.",
+                "source_code": "https://github.com/StarrkF/dynamic-library",
+                "link": "https://starrkf.github.io/todo-vue-tailwind"
             },
             {
-                "title": "Project 5",
-                "summary": "Compatibility & Work Discipline",
-                "link": "google"
+                "title": "Personal Library Project",
+                "summary": "A full-stack project to classify, filter, and visually chart books in the library. Used Laravel for the backend, Vue for the frontend, and Git Action for deployment. The site is actively used, and a preview system will be active soon.",
+                "source_code": "https://github.com/StarrkF/dynamic-library",
+                "link": "https://furkanaymergen.site/"
+            },
+            {
+                "title": "LizardApp",
+                "summary": "A freelance project involving a Rest API service and management panel for a language learning application that is not currently active. Used Laravel for backend and Swagger for API documentation. A demo page for the project will be active soon. As this is a freelance project, the source code is not publicly available.",
+                "source_code": "#",
+                "link": "#"
+            },
+            {
+                "title": "Adventurer Pixel 2D",
+                "summary": "A 2D platform game project I created as a university graduation project. Used Unity and C# technologies in this project.",
+                "source_code": "https://github.com/StarrkF/Adventurer-Pixel-2D-Graduation-Project",
+                "link": "#"
             }
         ]
     },
