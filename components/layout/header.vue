@@ -85,7 +85,7 @@ const themes = [
                         <label for="my-drawer" class="drawer-overlay"></label>
                         <ul class="menu p-4 w-1/2 md:w-1/3 h-full bg-base-200 text-base-content">
                             <li v-for="item in $tm('app.menu')">
-                                <a :href="item.href" alt="About" class="text-xl font-oswald" v-smooth-scroll>{{ item.name }}</a>
+                                <a :href="item.href" :alt="item.name" class="text-xl font-oswald" v-smooth-scroll>{{ item.name }}</a>
                             </li>
                         </ul>
                     </div>

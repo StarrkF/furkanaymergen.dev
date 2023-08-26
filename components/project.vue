@@ -47,7 +47,7 @@ const bp = {
                 :autoplay="ap">
                 <swiper-slide  class="relative inline-block group mask mask-squircle drop-shadow-2xl" v-for="(project, index) in projects" :key="index">
                     <div @click="showDialog(index)" :title="project.title">
-                        <img class="absolute block w-full h-full duration-500 bg-cover group-hover:scale-125" src="/images/project-bg.png" :alt="project.title" />
+                        <img class="absolute block w-full h-full duration-500 bg-cover group-hover:scale-125" width="500" height="500" src="/images/project-bg.png" :alt="project.title" />
                         <div class="absolute flex items-center justify-center w-full h-full transition-all duration-500 ease-in-out -translate-x-1/2 -translate-y-1/2 opacity-0 bg-opacity-60 top-1/2 left-1/2 bg-base-300 group-hover:opacity-100">
                             <h3 class="font-mono text-3xl font-extrabold text-base-content">{{ project.title }}</h3>
                         </div>
@@ -58,7 +58,7 @@ const bp = {
             <dialog id="project_modal" class="modal">
                 <form method="dialog" class="bg-opacity-50 bg-base-300 modal-box backdrop-blur-lg shadow-glow shadow-base-content">
                     <button class="absolute btn btn-sm btn-circle btn-ghost right-2 top-2">✕</button>
-                    <h3 class="text-lg font-bold">{{ project.title }}</h3>
+                    <h3 class="text-lg font-bold text-center">{{ project.title }}</h3>
                     <p class="py-4">{{ project.summary }}</p>
                     <div class="flex justify-around">
                         <a v-if="project.source_code && !project.source_code.includes('#')" class="btn btn-primary" :href="project.source_code" :title="projects.title" target="_blank">{{ $t('project.button.source') }}</a>
