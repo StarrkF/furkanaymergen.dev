@@ -47,7 +47,7 @@ const themes = [
                         <li>
                             <div class="avatar" @click="setLocale('tr')">
                                 <div class="w-8">
-                                    <nuxt-img src="/images/tr.png" alt="Türkçe" />
+                                    <nuxt-img format="webp" src="/images/tr.png" alt="Türkçe" />
                                 </div>
                                 {{ $t('app.language.tr') }}
                             </div>
@@ -55,7 +55,7 @@ const themes = [
                         <li>
                             <div class="avatar"  @click="setLocale('en')">
                                 <div class="w-8">
-                                    <nuxt-img src="/images/en.png" alt="English" />
+                                    <nuxt-img format="webp" src="/images/en.png" alt="English" />
                                 </div>
                                 {{ $t('app.language.en') }}
                             </div>

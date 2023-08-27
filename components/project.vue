@@ -47,7 +47,7 @@ const bp = {
                 :autoplay="ap">
                 <swiper-slide  class="relative inline-block group mask mask-squircle drop-shadow-2xl" v-for="(project, index) in projects" :key="index">
                     <div @click="showDialog(index)" :title="project.title">
-                        <nuxt-img class="absolute block w-full h-full duration-500 bg-cover group-hover:scale-125" width="500" height="500" quality="75" src="/images/project-bg.png" :alt="project.title" />
+                        <nuxt-img format="webp" class="absolute block w-full h-full duration-500 bg-cover group-hover:scale-125" width="500" height="500" quality="75" src="/images/project-bg.png" :alt="project.title" />
                         <div class="absolute flex items-center justify-center w-full h-full transition-all duration-500 ease-in-out -translate-x-1/2 -translate-y-1/2 opacity-0 bg-opacity-60 top-1/2 left-1/2 bg-base-300 group-hover:opacity-100">
                             <h3 class="font-mono text-3xl font-extrabold text-base-content">{{ project.title }}</h3>
                         </div>
