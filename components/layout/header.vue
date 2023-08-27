@@ -25,7 +25,7 @@ const themes = [
 <template>
     <div class="navbar z-[99999] font-bold backdrop-blur-md bg-opacity-40 fixed flex justify-between px-4 md:px-16">
         <div class="navbar-start">
-            <div @click="scrollTop" class="hover:cursor-pointer text-5xl font-thin font-blackops text-primary">
+            <div @click="scrollTop" class="text-5xl font-thin hover:cursor-pointer font-blackops text-primary">
                 M.F.A
             </div>
         </div>
@@ -47,7 +47,7 @@ const themes = [
                         <li>
                             <div class="avatar" @click="setLocale('tr')">
                                 <div class="w-8">
-                                    <img src="/images/tr.png" alt="Türkçe" />
+                                    <nuxt-img src="/images/tr.png" alt="Türkçe" />
                                 </div>
                                 {{ $t('app.language.tr') }}
                             </div>
@@ -55,7 +55,7 @@ const themes = [
                         <li>
                             <div class="avatar"  @click="setLocale('en')">
                                 <div class="w-8">
-                                    <img src="/images/en.png" alt="English" />
+                                    <nuxt-img src="/images/en.png" alt="English" />
                                 </div>
                                 {{ $t('app.language.en') }}
                             </div>
@@ -75,15 +75,15 @@ const themes = [
                 <div class="drawer drawer-end">
                     <input id="my-drawer" type="checkbox" class="drawer-toggle" />
                     <div class="drawer-content">
-                        <label for="my-drawer" class="btn py-0 btn-ghost lg:hidden drawer-button">
+                        <label for="my-drawer" class="py-0 btn btn-ghost lg:hidden drawer-button">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
-                            </svg>    
+                            </svg>
                         </label>
-                    </div> 
+                    </div>
                     <div class="drawer-side">
                         <label for="my-drawer" class="drawer-overlay"></label>
-                        <ul class="menu p-4 w-1/2 md:w-1/3 h-full bg-base-200 text-base-content">
+                        <ul class="w-1/2 h-full p-4 menu md:w-1/3 bg-base-200 text-base-content">
                             <li v-for="item in $tm('app.menu')">
                                 <a :href="item.href" :alt="item.name" class="text-xl font-oswald" v-smooth-scroll>{{ item.name }}</a>
                             </li>
