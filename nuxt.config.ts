@@ -16,7 +16,7 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  modules: ['@nuxtjs/color-mode', 'nuxt-swiper', '@nuxtjs/i18n'],
+  modules: ['@nuxtjs/color-mode', 'nuxt-swiper', '@nuxtjs/i18n', '@nuxt/image'],
   i18n: {
     vueI18n: './i18n.config.ts'
   },
