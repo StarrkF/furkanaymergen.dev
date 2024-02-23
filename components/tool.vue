@@ -68,7 +68,7 @@ const bp = {
 
 .swiper-slide svg {
     @apply
-    hover:text-primary-focus
+    hover:text-secondary
     hover:contrast-200
     duration-500
     text-primary
