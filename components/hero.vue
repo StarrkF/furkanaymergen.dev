@@ -40,7 +40,7 @@ watchEffect(() => {
 
 </script>
 <template>
-    <section id="home" class="min-h-screen hero bg-gradient-to-br from-base-100 via-base-200 to-base-300">
+    <section id="home" class="min-h-screen hero bg-gradient-to-br from-base-200 via-base-300 to-base-300">
         <div class="text-center hero-content text-neutral-content">
             <div class="max-w-fit">
                 <div data-aos="fade-down" class="mb-5 flex justify-center text-5xl md:text-8xl min-h-[100px] font-blackops text-base-content">

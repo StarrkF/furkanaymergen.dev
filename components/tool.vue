@@ -21,7 +21,7 @@ const bp = {
 </script>
 
 <template>
-    <section id="tools" class="min-h-screen px-10 bg-base-100 md:px-32 lg:px-60">
+    <section id="tools" class="min-h-fit pb-52 px-10 bg-base-100 md:px-32 lg:px-60">
             <section-title>{{ $t('tool.title') }}</section-title>
             <h3 data-aos="fade-down" class="w-full mx-auto my-20 text-2xl text-center md:text-4xl font-oswald md:w-1/2 md:my-20">{{ $t('tool.summary') }}</h3>
             <swiper
@@ -68,7 +68,7 @@ const bp = {
 
 .swiper-slide svg {
     @apply
-    hover:text-primary-focus
+    hover:text-secondary
     hover:contrast-200
     duration-500
     text-primary
