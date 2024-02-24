@@ -32,7 +32,7 @@ const bp = {
 </script>
 
 <template>
-    <section id="projects" class="min-h-screen px-6 bg-base-200 md:px-20 lg:px-32">
+    <section id="projects" class="min-h-screen px-6 bg-base-300 md:px-20 lg:px-32">
         <section-title>{{ $t('project.title') }}</section-title>
             <h3 data-aos="fade-down" class="w-full mx-auto mt-10 text-2xl text-center font-oswald md:text-4xl md:w-1/2 md:my-20">{{ $t('project.summary') }}</h3>
             <swiper
