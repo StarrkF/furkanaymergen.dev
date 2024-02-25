@@ -52,7 +52,7 @@ watchEffect(() => {
                 <h2 data-aos="fade-up" class="my-10  text-3xl md:text-4xl font-light text-base-content font-oswald">{{ hero.text }}</h2>
                 <div data-aos="zoom-out" class="flex flex-wrap justify-center gap-4">
                     <a :href="hero.button.cv.href" :title="hero.button.cv.title" target="_blank" class="w-full text-3xl duration-200 shadow-lg sm:w-40 hover:scale-90 btn hover:shadow-xl btn-primary md:btn-lg">{{ hero.button.cv.title }}</a>
-                    <a href="#about" :title="$t('about.title')" class="w-full duration-200 shadow-lg sm:w-40 btn hover:scale-90 hover:shadow-xl  btn-accent md:btn-lg">{{ hero.button.about }}</a>
+                    <a href="#about" v-smooth-scroll :title="$t('about.title')" class="w-full duration-200 shadow-lg sm:w-40 btn hover:scale-90 hover:shadow-xl  btn-accent md:btn-lg">{{ hero.button.about }}</a>
                 </div>
             </div>
         </div>
