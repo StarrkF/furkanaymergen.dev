@@ -155,8 +155,8 @@
     "title": "My Projects",
     "summary": "You can review the projects I have undertaken to enhance myself with the experience gained from my school and work.",
     "button": {
-      "source": "Source Code",
-      "preview": "Live Preview"
+      "source": "Project",
+      "preview": "Show"
     },
     "items": [
       {

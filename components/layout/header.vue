@@ -52,14 +52,14 @@ const themes = [
           </div>
         </label>
 
-        <div class="dropdown dropdown-hover dropdown-left">
+        <div class="dropdown dropdown-end dropdown-">
           <label tabindex="0" class="m-1 duration-200 hover:cursor-pointer hover:text-primary">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-7 h-7 stroke-current text-primary hover:text-accent duration-300"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
 
           </label>
-          <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+          <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow-lg bg-base-100 rounded-box w-52 glass">
             <li v-for="theme of themes" :key="theme">
-              <div class="capitalize hover:cursor-pointer" @click="setTheme(theme)">{{ theme }}</div>
+              <div class="capitalize hover:cursor-pointer backdrop-blur-xl" @click="setTheme(theme)">{{ theme }}</div>
             </li>
           </ul>
         </div>
