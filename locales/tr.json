@@ -86,6 +86,8 @@
   },
   "experience": {
     "title": "Deneyimlerim",
+    "education_tab": "Eğitim",
+    "work_life_tab": "İş Hayatı",
     "education": [
       {
         "date": "09.2012 - 06.2016",

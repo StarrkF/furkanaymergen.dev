@@ -86,6 +86,8 @@
   },
   "experience": {
     "title": "My Experiences",
+    "education_tab": "Education",
+    "work_life_tab": "Work Life",
     "education": [
       {
         "date": "09.2012 - 06.2016",
