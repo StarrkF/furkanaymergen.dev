@@ -32,23 +32,24 @@ const breakpoints = {
         class="w-full overflow-hidden"
         :grabCursor="true"
         :slidesPerView=1
-        :modules="[SwiperScrollbar]"
         :breakpoints="breakpoints"
-        :scrollbar="true"
     >
       <swiper-slide v-for="(project, index) in projects" :key="index">
         <mockup-browser :title="project.title">
-          <template #header>
-            <a role="button" v-if="project.source_code && !project.source_code.includes('#')"
-               class="btn btn-sm btn-outline text-xs" :href="project.source_code" :title="projects.title"
-               target="_blank">{{ $t('project.button.source') }}</a>
-            <a role="button" v-if="project.link && !project.link.includes('#')" class="btn btn-sm btn-outline text-xs"
-               :href="project.link" :title="projects.title" target="_blank">{{ $t('project.button.preview') }}</a>
-          </template>
-          <template #body>
             <div
-                class="flex justify-center px-6 py-8 md:text-lg font-light italic xl:h-60 bg-base-100 hover:bg-base-200 duration-300">
-              {{ project.summary }}
+                class="p-4 md:text-lg font-light italic h-52 overflow-y-auto bg-base-100 hover:bg-base-200 duration-300">
+
+
+
+              <p>{{ project.summary }}</p>
+            </div>
+          <template #footer>
+            <div class="flex justify-evenly w-full">
+              <a role="button" v-if="project.source_code && !project.source_code.includes('#')"
+                 class="btn btn-sm btn-outline text-xs w-28" :href="project.source_code" :title="projects.title"
+                 target="_blank">{{ $t('project.button.source') }}</a>
+              <a role="button" v-if="project.link && !project.link.includes('#')" class="btn btn-sm btn-outline w-28 text-xs"
+                 :href="project.link" :title="projects.title" target="_blank">{{ $t('project.button.preview') }}</a>
             </div>
           </template>
         </mockup-browser>
