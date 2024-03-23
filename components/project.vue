@@ -32,14 +32,14 @@ const breakpoints = {
         class="w-full overflow-hidden"
         :grabCursor="true"
         :slidesPerView=1
+        :navigation="true"
         :breakpoints="breakpoints"
+        :modules="[SwiperNavigation]"
     >
       <swiper-slide v-for="(project, index) in projects" :key="index">
         <mockup-browser :title="project.title">
             <div
                 class="p-4 md:text-lg font-light italic h-52 overflow-y-auto bg-base-100 hover:bg-base-200 duration-300">
-
-
 
               <p>{{ project.summary }}</p>
             </div>
