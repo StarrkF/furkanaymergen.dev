@@ -1,8 +1,8 @@
 <script setup>
 const { tm } = useI18n()
 const activeTab = ref(1);
-const educationData = ref(tm('experience.education'))
-const workLifeData = ref(tm('experience.work_life'))
+const educationData = ref(tm('experience.education').reverse())
+const workLifeData = ref(tm('experience.work_life').reverse())
 
 watchEffect(() => {
   educationData.value = tm('experience.education')
