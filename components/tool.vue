@@ -81,6 +81,7 @@ const breakpoints = {
   @apply
   hover:text-secondary
   hover:contrast-200
+  transition
   duration-500
   text-primary
   ease-in-out

@@ -1,18 +1,67 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&family=Black+Ops+One&display=swap');
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&family=Black+Ops+One&display=swap')
+layer(base);
+@import 'tailwindcss';
+@plugin "daisyui" {
+  themes: night --default, dracula, lemonade, cupcake, bumblebee, emerald, corporate, synthwave, halloween;
+}
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --shadow-glow:
+    0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #f0f, 0 0 40px #f0f;
+  --shadow-glow-xl:
+    0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #f0f, 0 0 80px #f0f;
+  --shadow-glow-sm:
+    0 0 3px #fff, 0 0 8px #fff, 0 0 12px #fff, 0 0 18px #f0f, 0 0 25px #f0f;
+
+  --font-oswald: Oswald, sans-serif;
+  --font-audiowide: Audiowide, cursive;
+  --font-blackops: Black Ops One, cursive;
+
+  --animate-blink: blink 700ms infinite;
+
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 body {
     @apply
-    duration-[400ms]
+    transition
+    duration-400
     ease-in-out
 }
 
 .page-enter-active,
 .page-leave-active {
   @apply
-  duration-[400ms]
+  transition
+  duration-400
 
 }
 .page-enter-from,

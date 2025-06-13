@@ -4,8 +4,8 @@
         <div data-aos="fade-down" class="flex flex-wrap items-center justify-around gap-6 my-20">
           <window-mockup v-for="(item, index) in $tm('goal.items')" :key="index">
             <div class="flex items-center gap-5 mb-6">
-              <div v-html="item.icon" class="duration-500 group-hover:text-cyan-400 text-emerald-400"></div>
-              <h4 class="font-mono text-2xl font-semibold duration-500 text-center group-hover:text-cyan-400 text-emerald-400">{{ item.title }}</h4>
+              <div v-html="item.icon" class="transition duration-500 group-hover:text-cyan-400 text-emerald-400"></div>
+              <h4 class="font-mono text-2xl font-semibold transition duration-500 text-center group-hover:text-cyan-400 text-emerald-400">{{ item.title }}</h4>
             </div>
             <div v-html="item.text" class="mb-3 font-normal text-slate-300"></div>
           </window-mockup>

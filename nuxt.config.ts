@@ -6,13 +6,13 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' }
   },
   plugins: [
-    { src: '~/plugins/smooth-scroll.js', ssr: false},
-    { src: '~/plugins/aos.js', mode: 'client'}
+    { src: '~/plugins/smooth-scroll.js', ssr: false },
+    { src: '~/plugins/aos.js', mode: 'client' }
   ],
   css: ['~/assets/css/main.css'],
   postcss: {
     plugins: {
-      tailwindcss: {},
+      '@tailwindcss/postcss': {},
       autoprefixer: {},
     },
   },

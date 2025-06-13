@@ -42,11 +42,13 @@ watchEffect(() => {
 
 </script>
 <template>
-  <section id="home" class="hero min-h-screen overflow-x-clip">
-        <img class="h-full" alt="M.Furkan Aymergen"
+  <section id="home" class="hero relative min-h-screen overflow-x-clip">
+    <img class="h-full absolute" alt="M.Furkan Aymergen"
       src="/images/hero-light-bg.jpg">
-    <div class="hero-overlay  magicpattern"
-        :class="darkModes.includes(colorMode.value) ? 'bg-opacity-80 bg-base-300' : 'bg-opacity-40 bg-base-100'"></div>
+    <div class="hero-overlay"
+        :class="darkModes.includes(colorMode.value) ? 'opacity-80 bg-base-300' : 'opacity-40 bg-base-100'"></div>
+        
+    
     <div class="hero-content text-neutral-content text-center">
       <div class="text-center hero-content text-neutral-content">
 
@@ -62,10 +64,10 @@ watchEffect(() => {
             {{ hero.text }}</h2>
           <div data-aos="zoom-out" class="flex flex-wrap justify-center gap-4">
             <a :href="hero.button.cv.href" :title="hero.button.cv.title" target="_blank"
-                class="w-full text-3xl duration-200 shadow-lg sm:w-40 hover:scale-90 btn hover:shadow-xl btn-primary md:btn-lg">{{
+                class="w-ful transition text-3xl duration-200 shadow-lg sm:w-40 hover:scale-90 btn hover:shadow-xl btn-primary md:btn-lg">{{
                   hero.button.cv.title }}</a>
             <a href="#about" v-smooth-scroll :title="$t('about.title')"
-                class="w-full duration-200 shadow-lg sm:w-40 btn hover:scale-90 hover:shadow-xl  btn-accent md:btn-lg">{{
+                class="w-full transition duration-200 shadow-lg sm:w-40 btn hover:scale-90 hover:shadow-xl  btn-accent md:btn-lg">{{
                   hero.button.about }}</a>
           </div>
         </div>
