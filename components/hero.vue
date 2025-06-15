@@ -43,7 +43,7 @@ watchEffect(() => {
 </script>
 <template>
   <section id="home" class="hero relative min-h-screen overflow-x-clip">
-    <img class="h-full absolute" alt="M.Furkan Aymergen"
+    <img class="h-full absolute object-cover w-full" alt="M.Furkan Aymergen"
       src="/images/hero-light-bg.jpg">
     <div class="hero-overlay"
         :class="darkModes.includes(colorMode.value) ? 'opacity-80 bg-base-300' : 'opacity-40 bg-base-100'"></div>

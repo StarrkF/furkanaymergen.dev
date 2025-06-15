@@ -74,16 +74,3 @@ const breakpoints = {
     </swiper>
   </section>
 </template>
-
-<style scoped>
-
-.swiper-slide svg {
-  @apply
-  hover:text-secondary
-  hover:contrast-200
-  transition
-  duration-500
-  text-primary
-  ease-in-out
-}
-</style>

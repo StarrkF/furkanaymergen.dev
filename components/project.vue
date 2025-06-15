@@ -59,6 +59,8 @@ const breakpoints = {
 </template>
 
 <style scoped>
+@reference "../assets/css/main.css";
+
 .swiper-slide {
   @apply
   h-[350px]

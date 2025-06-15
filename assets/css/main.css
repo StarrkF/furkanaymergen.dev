@@ -71,6 +71,16 @@ body {
     blur-md
 }
 
+.swiper-slide svg {
+  @apply
+  hover:text-secondary
+  hover:contrast-200
+  transition
+  duration-500
+  text-primary
+  ease-in-out
+}
+
 ::-webkit-scrollbar {
     @apply
     w-2
