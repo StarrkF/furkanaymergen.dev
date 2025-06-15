@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&family=Black+Ops+One&display=swap')
-layer(base);
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&family=Black+Ops+One&display=swap');
 @import 'tailwindcss';
 @plugin "daisyui" {
   themes: night --default, dracula, lemonade, cupcake, bumblebee, emerald, corporate, synthwave, halloween;
