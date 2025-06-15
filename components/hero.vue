@@ -64,7 +64,7 @@ watchEffect(() => {
             {{ hero.text }}</h2>
           <div data-aos="zoom-out" class="flex flex-wrap justify-center gap-4">
             <a :href="hero.button.cv.href" :title="hero.button.cv.title" target="_blank"
-                class="w-ful transition text-3xl duration-200 shadow-lg sm:w-40 hover:scale-90 btn hover:shadow-xl btn-primary md:btn-lg">{{
+                class="w-full transition text-3xl duration-200 shadow-lg sm:w-40 hover:scale-90 btn hover:shadow-xl btn-primary md:btn-lg">{{
                   hero.button.cv.title }}</a>
             <a href="#about" v-smooth-scroll :title="$t('about.title')"
                 class="w-full transition duration-200 shadow-lg sm:w-40 btn hover:scale-90 hover:shadow-xl  btn-accent md:btn-lg">{{
