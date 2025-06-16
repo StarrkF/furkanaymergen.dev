@@ -28,5 +28,5 @@ export default defineNuxtConfig({
     preference: 'night', // default theme
     dataValue: 'theme', // activate data-theme in <html> tag
     classSuffix: '',
-  }
+  },
 })

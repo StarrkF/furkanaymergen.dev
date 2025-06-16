@@ -43,8 +43,9 @@ watchEffect(() => {
 </script>
 <template>
   <section id="home" class="hero relative min-h-screen overflow-x-clip">
-    <img class="h-full absolute object-cover w-full" alt="Furkan Aymergen"
-      src="/images/hero-light-bg.jpg">
+    <!-- <img class="h-full absolute object-cover w-full" alt="Furkan Aymergen"
+      src="/images/hero-light-bg.jpg"> -->
+      <nuxt-img format="webp" src="/images/hero-light-bg.jpg" alt="Furkan Aymergen" width="1920" height="1080" class="h-full absolute object-cover w-full" />
     <div class="hero-overlay"
         :class="darkModes.includes(colorMode.value) ? 'opacity-80 bg-base-300' : 'opacity-40 bg-base-100'"></div>
         
@@ -64,10 +65,10 @@ watchEffect(() => {
             {{ hero.text }}</h2>
           <div data-aos="zoom-out" class="flex flex-wrap justify-center gap-4">
             <a :href="hero.button.cv.href" :title="hero.button.cv.title" target="_blank"
-                class="w-full transition text-3xl duration-200 shadow-lg sm:w-40 hover:scale-90 btn hover:shadow-xl btn-primary md:btn-lg">{{
+                class="w-full transition text-3xl duration-300 shadow-lg sm:w-40 btn hover:shadow-glow-sm hover:shadow-base-content hover:backdrop-blur-lg border-base-content text-base-content md:btn-lg backdrop-blur-sm bg-transparent">{{
                   hero.button.cv.title }}</a>
             <a href="#about" v-smooth-scroll :title="$t('about.title')"
-                class="w-full transition duration-200 shadow-lg sm:w-40 btn hover:scale-90 hover:shadow-xl  btn-accent md:btn-lg">{{
+                class="w-full transition duration-300 shadow-lg sm:w-40 btn hover:shadow-glow-sm hover:shadow-base-content border-base-content hover:backdrop-blur-lg text-base-content md:btn-lg backdrop-blur-sm bg-transparent">{{
                   hero.button.about }}</a>
           </div>
         </div>
