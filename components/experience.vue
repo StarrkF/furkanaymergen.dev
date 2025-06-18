@@ -1,14 +1,22 @@
 <script setup>
-const { tm } = useI18n()
+const { tm, locale } = useI18n();
 const activeTab = ref(1);
-const educationData = ref(tm('experience.education').reverse())
-const workLifeData = ref(tm('experience.work_life').reverse())
 
-watchEffect(() => {
-  educationData.value = tm('experience.education')
-  workLifeData.value = tm('experience.work_life')
-})
+const educationData = ref([]);
+const workLifeData = ref([]);
 
+const loadAndReverseData = () => {
+  educationData.value = [...tm('experience.education')].reverse();
+  workLifeData.value = [...tm('experience.work_life')].reverse();
+};
+
+onMounted(() => {
+  loadAndReverseData();
+});
+
+watch(locale, () => {
+  loadAndReverseData();
+});
 </script>
 
 <template>

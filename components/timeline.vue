@@ -15,6 +15,7 @@ const formatDate = (date) => {
 }
 
 const getYearMonthDifference =(startDate, endDate) => {
+  endDate = endDate || new Date();
   let totalMonths =
     (endDate.getFullYear() - startDate.getFullYear()) * 12 +
     (endDate.getMonth() - startDate.getMonth());
@@ -32,13 +33,17 @@ const getYearMonthDifference =(startDate, endDate) => {
   return result.trim() || "0";
 }
 
-props.data.forEach(item => {
-  item.start_date = new Date(item.start_date);
-  item.end_date = item.end_date ? new Date(item.end_date) : new Date();
-  item.format_start_date = formatDate(item.start_date);
-  item.format_end_date = formatDate(item.end_date);
-  item.month_difference = getYearMonthDifference(item.start_date, item.end_date);
-});
+watchEffect(() => {
+  if (props.data) {
+    props.data.forEach(item => {
+      item.start_date = new Date(item.start_date);
+      item.end_date = item.end_date ? new Date(item.end_date) : null;
+      item.format_start_date = formatDate(item.start_date);
+      item.format_end_date = formatDate(item.end_date);
+      item.month_difference = getYearMonthDifference(item.start_date, item.end_date);
+    });
+  }
+})
 </script>
 
 <template>
