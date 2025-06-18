@@ -1,9 +1,44 @@
 <script setup>
-defineProps({
+
+const { locale } = useI18n();
+const props = defineProps({
   data: {
     type: Object
   }
 })
+
+const formatDate = (date) => {
+  if (!date) return locale.value === 'tr' ? 'Günümüz' : 'Present';
+  const month = (date.getMonth() + 1).toString().padStart(2, '0'); // 0-indexli ay
+  const year = date.getFullYear();
+  return `${month}.${year}`;
+}
+
+const getYearMonthDifference =(startDate, endDate) => {
+  let totalMonths =
+    (endDate.getFullYear() - startDate.getFullYear()) * 12 +
+    (endDate.getMonth() - startDate.getMonth());
+
+  if (endDate.getDate() < startDate.getDate()) {
+    totalMonths--;
+  }
+
+  const years = Math.floor(totalMonths / 12);
+  const months = totalMonths % 12;
+
+  let result = '';
+  if (years > 0) result += years + (locale.value === 'tr' ? 'yıl ' : 'years ');
+  if (months > 0) result += months + (locale.value === 'tr' ? 'ay' : 'months');
+  return result.trim() || "0";
+}
+
+props.data.forEach(item => {
+  item.start_date = new Date(item.start_date);
+  item.end_date = item.end_date ? new Date(item.end_date) : new Date();
+  item.format_start_date = formatDate(item.start_date);
+  item.format_end_date = formatDate(item.end_date);
+  item.month_difference = getYearMonthDifference(item.start_date, item.end_date);
+});
 </script>
 
 <template>
@@ -18,7 +53,8 @@ defineProps({
         </svg>
       </div>
       <div :class="{'timeline-start md:text-end': index % 2 === 0, 'timeline-end': index % 2 !== 0}" class="mb-10">
-        <time class="font-mono font-thin italic">{{ item.date }}</time>
+        <span class="font-mono font-semibold italic">{{ item.month_difference }}</span><br>
+        <time class="font-mono font-thin italic text-sm">{{ item.format_start_date }} - {{ item.format_end_date }}</time>
         <div class="text-lg font-black text-secondary">{{ item.title }}</div>
         <ul v-if="item.details" v-for="(detail, i) in item.details" :key="i">
           <li>{{ detail }}</li>
