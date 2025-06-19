@@ -1,5 +1,5 @@
 <template>
-    <section id="about" class="min-h-screen px-6 bg-base-200">
+    <section id="about" class="min-h-screen px-6 sm:px-16 bg-base-200">
         <section-title>{{ $t('about.title') }}</section-title>
             <div class="flex flex-col items-center justify-center pb-10 space-x-8 space-y-8 transition duration-500 md:flex-row md:mt-20 grayscale hover:grayscale-0">
                 <nuxt-img format="webp" data-aos="zoom-in" src="/images/mfa-about.png" alt="Furkan Aymergen" width="600" height="600" class="max-w-full md:w-1/2 lg:max-w-xl mask mask-hexagon" />

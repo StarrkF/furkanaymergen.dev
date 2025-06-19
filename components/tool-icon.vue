@@ -6,11 +6,11 @@ defineProps({
 })
 </script>
 <template>
-    <div class="group text-primary ease-in-out">
-        <div class="transition duration-300 group-hover:text-secondary group-hover:contrast-200 border-b border-primary group-hover:border-secondary pb-5">
+    <div class="group text-base-content ease-in-out">
+        <div class="transition duration-400 group-hover:text-primary  border-b border-base-content drop-shadow-lg/25 group-hover:border-primary hover:drop-shadow-primary hover:drop-shadow-lg/75 pb-2">
             <slot/>
         </div>
-        <div class="transition duration-300 group-hover:text-secondary group-hover:contrast-200 w-full justify-center flex font-audiowide font-semibold">
+        <div class="transition duration-400 group-hover:text-primary  w-full justify-center text-xs sm:text-sm flex font-audiowide font-semibold">
             {{ title }}
         </div>
     </div>
