@@ -16,13 +16,14 @@
                 "name": "Deneyimler"
             },
             {
-                "href": "#goals",
-                "name": "Hedefler"
-            },
-            {
                 "href": "#projects",
                 "name": "Projeler"
+            },
+            {
+                "href": "#goals",
+                "name": "Hedefler"
             }
+
         ]
     },
     "hero": {
@@ -155,7 +156,7 @@
     },
     "project": {
         "title": "Projelerim",
-        "summary": "Okulda yaptığım ve çalışma hatayımda tecrübe edindiklerimle kendimi geliştirmek için yağtığım projeleri inceleyebilirsiniz",
+        "summary": "Okulda yaptığım ve çalışma hatayımda tecrübe edindiklerimle kendimi geliştirmek için yaptığım projeleri inceleyebilirsiniz",
         "button": {
             "source": "Proje",
             "preview": "Gösterim"

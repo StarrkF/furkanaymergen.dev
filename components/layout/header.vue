@@ -25,7 +25,7 @@ const themes = [
 <template>
   <div class="navbar z-99999 font-bold backdrop-blur-md bg-opacity-40 fixed flex justify-between px-4 md:px-16">
     <div class="navbar-start">
-      <div @click="scrollTop" class="text-5xl font-thin hover:cursor-pointer font-blackops text-primary">
+      <div @click="scrollTop" class="text-5xl font-thin hover:cursor-pointer hover:text-accent transition duration-300 hover:drop-shadow-md font-blackops text-primary">
         M.F.A
       </div>
     </div>
@@ -41,8 +41,8 @@ const themes = [
     </div>
 
     <div class="navbar-end">
-      <div class="flex items-center gap-2">
-        <label class="swap text-primary">
+      <div class="flex items-center">
+        <label class="swap text-primary transition duration-300 hover:text-accent">
           <input type="checkbox"/>
           <div class="swap-off flex items-center gap-1">
             <div class="w-10 hover:cursor-pointer" @click="setLocale('tr')">EN</div>

@@ -16,13 +16,14 @@
                 "name": "Experiences"
             },
             {
-                "href": "#goals",
-                "name": "Goals"
-            },
-            {
                 "href": "#projects",
                 "name": "Projects"
+            },
+            {
+                "href": "#goals",
+                "name": "Goals"
             }
+            
         ]
     },
     "hero": {

@@ -27,25 +27,16 @@ watch(locale, () => {
       <div role="tab" class="tab text-lg font-light flex-1 hover:cursor-pointer hover:text-primary transition duration-300" :class="{ 'tab-active': activeTab === 2 }" @click="activeTab = 2">{{ $t('experience.education_tab') }}</div>
     </div>
 
-        <div v-if="activeTab === 1">
-          <timeline :data="workLifeData"/>
-        </div>
+        <transition name="fade" mode="out-in">
+          <div v-if="activeTab === 1" key="work">
+            <timeline :data="workLifeData" />
+          </div>
 
-        <div v-if="activeTab === 2">
-          <timeline :data="educationData"/>
-        </div>
+          <div v-else-if="activeTab === 2" key="edu">
+            <timeline :data="educationData" />
+          </div>
+        </transition>
 
   </section>
 
 </template>
-
-<style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-</style>

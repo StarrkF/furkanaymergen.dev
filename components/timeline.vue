@@ -58,11 +58,11 @@ watchEffect(() => {
         </svg>
       </div>
       <div :class="{'timeline-start md:text-end': index % 2 === 0, 'timeline-end': index % 2 !== 0}" class="mb-10">
-        <span class="font-mono font-semibold italic">{{ item.month_difference }}</span><br>
-        <time class="font-mono font-thin italic text-sm">{{ item.format_start_date }} - {{ item.format_end_date }}</time>
-        <div class="text-lg font-black text-secondary">{{ item.title }}</div>
+        <span class="font-oswald text-primary tracking-wider font-semibold italic">{{ item.month_difference }}</span><br>
+        <time class="font-mono text-secondary font-thin italic text-sm">{{ item.format_start_date }} - {{ item.format_end_date }}</time>
+        <div class="text-lg font-oswald tracking-widest font-extrabold text-accent">{{ item.title }}</div>
         <ul v-if="item.details" v-for="(detail, i) in item.details" :key="i">
-          <li>{{ detail }}</li>
+          <li class="font-oswald font-semibold tracking-wider text-sm">{{ detail }}</li>
         </ul>
       </div>
       <hr/>

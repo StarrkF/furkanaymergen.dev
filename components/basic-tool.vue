@@ -5,19 +5,27 @@ const autoplay = {
 }
 
 const breakpoints = {
-  550: {
-    slidesPerView: 6,
+  500: {
+    slidesPerView: 4,
     spaceBetween:50
   },
-  1024: {
-    slidesPerView: 8,
+  750: {
+    slidesPerView: 5,
+    spaceBetween:60
+  },
+  1000: {
+    slidesPerView: 6,
     spaceBetween:60
   },
   1200: {
-    slidesPerView: 10,
+    slidesPerView: 8,
     spaceBetween:70
   },
-  1536: {
+  1500: {
+    slidesPerView: 10,
+    spaceBetween:80
+  },
+  2000: {
     slidesPerView: 12,
     spaceBetween:80
   }
@@ -25,7 +33,7 @@ const breakpoints = {
 </script>
 
 <template>
-  <section id="tools" class="px-1 backdrop-blur-md  -mt-30 sm:px-8 pt-2 pb-6 b-0">
+  <section id="tools" class="px-1 backdrop-blur-md sm:px-8 -mt-37 pt-2 pb-7 b-0">
     <swiper class="w-full mx-auto" :grabCursor="true" :modules="[SwiperAutoplay, SwiperFreeMode]"
       :slidesPerView=4 :free-mode="true" :space-between=30 :loop="true" :breakpoints="breakpoints" :autoplay="autoplay">
       <template v-for="i in 5" :key="i">

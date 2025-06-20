@@ -43,9 +43,7 @@ watchEffect(() => {
 </script>
 <template>
   <section id="home" class="hero relative min-h-screen overflow-x-clip">
-    <!-- <img class="h-full absolute object-cover w-full" alt="Furkan Aymergen"
-      src="/images/hero-light-bg.jpg"> -->
-      <nuxt-img format="webp" src="/images/hero-light-bg.jpg" alt="Furkan Aymergen" width="1920" height="1080" class="h-full absolute object-cover w-full" />
+      <nuxt-img format="webp" src="/images/hero-light-bg.jpg" alt="Furkan Aymergen" width="1920" height="1080" class="h-[100vh] absolute object-cover w-full" />
     <div class="hero-overlay"
         :class="darkModes.includes(colorMode.value) ? 'opacity-80 bg-base-300' : 'opacity-40 bg-base-100'"></div>
         
@@ -55,13 +53,15 @@ watchEffect(() => {
 
         <div class="max-w-fit">
           <div data-aos="fade-down"
-              class="mb-5 flex justify-center text-5xl md:text-8xl min-h-[100px] font-blackops text-base-content">
+              class="mb-5 flex justify-center text-4xl md:text-7xl min-h-[100px] font-blackops text-base-content">
             <h1>
+              <span> < </span>
               {{ currentChar }}
               <span class="animate-blink">|</span>
+              <span> /></span>
             </h1>
           </div>
-          <h2 data-aos="fade-up" class="my-10  text-3xl md:text-4xl font-light text-base-content font-oswald">
+          <h2 data-aos="fade-up" class="my-10  text-2xl md:text-3xl font-thin text-base-content tracking-[-2px] font-mono">
             {{ hero.text }}</h2>
           <div data-aos="zoom-out" class="flex flex-wrap justify-center gap-4">
             <a :href="hero.button.cv.href" :title="hero.button.cv.title" target="_blank"
@@ -75,4 +75,5 @@ watchEffect(() => {
       </div>
     </div>
   </section>
+  <BasicTool/>
 </template>

@@ -69,11 +69,10 @@ useHead({
 <template>
   <NuxtLayout>
     <Hero/>
-    <BasicTool/>
     <About/>
     <Experience/>
-    <Goal/>
     <Project/>
+    <Goal/>
     <!-- <Tool/> -->
   </NuxtLayout>
 </template>

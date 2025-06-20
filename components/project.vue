@@ -66,9 +66,5 @@ const breakpoints = {
   h-[350px]
 }
 
-.swiper-button-prev, .swiper-button-next {
-  @apply
-  text-primary
-}
 
 </style>
