@@ -175,6 +175,12 @@
                 "link": "https://furkanaymergen.dev/"
             },
             {
+                "title": "Avukatlık Bürosu Web Sitesi",
+                "summary": "Laravel ve Vue.js teknolojilerini kullanarak, yönetim paneli bulunan profesyonel bir avukatlık bürosu web sitesi geliştirdim. Site şu anda aktif olarak kullanılmaktadır.",
+                "source_code": "#",
+                "link": "https://baskentvizyonhukuk.com/"
+            },
+            {
                 "title": "Todo App",
                 "summary": "Frontend becerilerimi geliştirmek için yaptığım yapılacaklar listesi projesi. Projede Vue, Tailwind ve Git Action teknolojilerini kullandım",
                 "source_code": "https://github.com/StarrkF/todo-vue-tailwind",
@@ -184,11 +190,11 @@
                 "title": "Kişisel Kitaplık projesi",
                 "summary": "Kitaplıktaki kitapların sınıflandırılması, filtrelenmesi ve görsel bir şekilde grafiğe dökülmesi için yapılan fullstack proje. Backend tarafında Laravel Frontend tarafında Vue, siteyi yayınlamak için ise Git Action kullanılmıştır. Site aktif olark kullanıldığı için sadece önizlemenin yapıldığı bir sistem yakında aktif edilecektir.",
                 "source_code": "https://github.com/StarrkF/dynamic-library",
-                "link": "https://furkanaymergen.site/"
+                "link": "https://lib.furkanaymergen.dev/"
             },
             {
                 "title": "LizardApp",
-                "summary": "Şu an aktif olarak yayında olmayan bir dil öğrenme uygulaması için yaptığım Rest Api servisi ve yönetim panelli freelance proje. Backen'de Laravel Api döümanı içinde Swagger kullandım. Site aktif olmadığı için projeyi gösterebileceğim bir demo sayfası yakında aktif olacaktır. Freelance proje olduğu için kaynak kodunu paylaşamıyorum.",
+                "summary": "Şu an aktif olarak yayında olmayan bir dil öğrenme uygulaması için yaptığım Rest Api servisi ve yönetim panelli freelance proje. Backend'de Laravel Api dökümanı içinde Swagger kullandım. Site aktif olmadığı için projeyi gösterebileceğim bir demo sayfası yakında aktif olacaktır. Freelance proje olduğu için kaynak kodunu paylaşamıyorum.",
                 "source_code": "#",
                 "link": "#"
             },

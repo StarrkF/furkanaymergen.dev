@@ -175,6 +175,12 @@
                 "link": "https://furkanaymergen.dev/"
             },
             {
+                "title": "Law Firm Website",
+                "summary": "I developed a professional law firm website with an integrated admin panel using Laravel and Vue.js. The website is currently live and actively in use.",
+                "source_code": "#",
+                "link": "https://baskentvizyonhukuk.com/"
+            },
+            {
                 "title": "Todo App",
                 "summary": "A to-do list project I created to enhance my frontend skills. In this project, I used Vue, Tailwind, and Git Action technologies.",
                 "source_code": "https://github.com/StarrkF/todo-vue-tailwind",
@@ -184,7 +190,7 @@
                 "title": "Personal Library Project",
                 "summary": "A full-stack project to classify, filter, and visually chart books in the library. Used Laravel for the backend, Vue for the frontend, and Git Action for deployment. The site is actively used, and a preview system will be active soon.",
                 "source_code": "https://github.com/StarrkF/dynamic-library",
-                "link": "https://furkanaymergen.site/"
+                "link": "https://lib.furkanaymergen.dev/"
             },
             {
                 "title": "LizardApp",
