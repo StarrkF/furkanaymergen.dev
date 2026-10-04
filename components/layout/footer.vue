@@ -1,31 +1,107 @@
+<script setup lang="ts">
+import { computed } from 'vue'
+
+const { t, tm, locale } = useI18n()
+
+const scrollTop = () => {
+  window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+}
+
+const currentYear = new Date().getFullYear()
+
+const cvHref = computed(() => {
+  return locale.value === 'tr' ? '/mfa-cv.pdf' : '/mfa-cv-eng.pdf'
+})
+</script>
+
 <template>
-	<footer class="transition duration-300 fixed top-1/3 right-0 px-2 py-4 z-9999 backdrop-blur-sm bg-transparent rounded-l-2xl hover:bg-base-200 hover:shadow-glow-xl hover:shadow-base-300">
-		<div class="flex flex-col  space-y-10">
-			<SocialIcon href="https://github.com/StarrkF" title="GitHub">
-			<svg xmlns="http://www.w3.org/2000/svg" color="currentColor" viewBox="0 0 496 512">
-							<path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
-						</svg>
-			</SocialIcon>
-			<SocialIcon href="https://www.linkedin.com/in/muhammed-furkan-aymergen-25646b174/" title="LinkedIn">
-			<svg xmlns="http://www.w3.org/2000/svg" color="currentColor" viewBox="0 0 448 512">
-							<path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
-						</svg>
-			</SocialIcon>
-			<SocialIcon href="https://stackoverflow.com/users/16917642/starrk" title="Stack Overflow">
-			<svg xmlns="http://www.w3.org/2000/svg" color="currentColor" viewBox="0 0 384 512">
-							<path d="M290.7 311L95 269.7 86.8 309l195.7 41zm51-87L188.2 95.7l-25.5 30.8 153.5 128.3zm-31.2 39.7L129.2 179l-16.7 36.5L293.7 300zM262 32l-32 24 119.3 160.3 32-24zm20.5 328h-200v39.7h200zm39.7 80H42.7V320h-40v160h359.5V320h-40z" />
-						</svg>
-			</SocialIcon>
-			<SocialIcon :href="$t('hero.button.cv.href')" title="CV">
-			<svg xmlns="http://www.w3.org/2000/svg" color="currentColor" viewBox="0 0 640 512">
-							<path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9v28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5V291.9c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z" />
-						</svg>
-			</SocialIcon>
-			<SocialIcon href="mailto:faymergen98@gmail.com" title="G Mail">
-			<svg xmlns="http://www.w3.org/2000/svg" color="currentColor" viewBox="0 0 488 512">
-							<path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z" />
-						</svg>
-			</SocialIcon>
-		</div>
-	</footer>
+  <div>
+    <!-- Floating Quick Dock (Desktop Screen Edge) -->
+    <aside class="hidden md:flex fixed top-1/2 -translate-y-1/2 right-4 z-40 flex-col items-center gap-3 p-2 rounded-2xl glass-panel shadow-2xl border-base-content/15">
+      <!-- GitHub -->
+      <SocialIcon href="https://github.com/StarrkF" title="GitHub">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/>
+        </svg>
+      </SocialIcon>
+
+      <!-- LinkedIn -->
+      <SocialIcon href="https://www.linkedin.com/in/muhammed-furkan-aymergen-25646b174/" title="LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>
+        </svg>
+      </SocialIcon>
+
+      <!-- StackOverflow -->
+      <SocialIcon href="https://stackoverflow.com/users/16917642/starrk" title="Stack Overflow">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m19 14-8-4-1 2 8 4zM8 18h10v-2H8zm12-9-7-6-1.5 1.8 7 6zM4 14v8h16v-8"/>
+        </svg>
+      </SocialIcon>
+
+      <!-- CV Download -->
+      <SocialIcon :href="cvHref" :title="locale === 'tr' ? 'Özgeçmiş (CV)' : 'Download CV'">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/>
+        </svg>
+      </SocialIcon>
+
+      <!-- Email -->
+      <SocialIcon href="mailto:faymergen98@gmail.com" title="Email">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        </svg>
+      </SocialIcon>
+    </aside>
+
+    <!-- Comprehensive Main Page Footer -->
+    <footer class="w-full relative z-10 bg-base-200/90 border-t border-base-content/10 py-10 sm:py-12 px-4 sm:px-6 lg:px-12 text-base-content/70">
+      <div class="max-w-7xl mx-auto flex flex-col items-center justify-between gap-6 sm:gap-8 sm:flex-row">
+        
+        <!-- Left Brand & Copyright -->
+        <div class="flex flex-col items-center sm:items-start gap-2">
+          <a
+            href="#home"
+            @click.prevent="scrollTop"
+            class="no-underline focus:outline-hidden"
+          >
+            <app-logo size="md" :showSubtitle="false" />
+          </a>
+          <p class="text-xs font-mono text-base-content/50 text-center sm:text-left mt-1">
+            © {{ currentYear }} Furkan Aymergen. {{ $t('footer.rights') }}
+          </p>
+        </div>
+
+        <!-- Center Nav Links -->
+        <nav class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs sm:text-sm font-heading font-medium">
+          <a
+            v-for="item in $tm('app.menu')"
+            :key="item.href"
+            :href="item.href"
+            v-smooth-scroll
+            class="text-base-content/70 hover:text-cyan-400 transition-colors"
+          >
+            {{ item.name }}
+          </a>
+          <a href="#contact" v-smooth-scroll class="text-base-content/70 hover:text-cyan-400 transition-colors">
+            {{ $t('footer.contact') }}
+          </a>
+        </nav>
+
+        <!-- Right: Back to Top Rocket Trigger -->
+        <div class="flex items-center gap-4">
+          <button
+            type="button"
+            @click="scrollTop"
+            class="flex items-center gap-2 px-4 py-2 rounded-full glass-panel text-base-content/80 hover:text-cyan-400 text-xs font-mono transition-all duration-300 cursor-pointer shadow-xs hover:scale-105 group hover:border-cyan-400/50"
+            :title="$t('footer.back_to_top')"
+          >
+            <span class="group-hover:-translate-y-1 transition-transform">🚀</span>
+            <span>{{ $t('footer.back_to_top') }}</span>
+          </button>
+        </div>
+
+      </div>
+    </footer>
+  </div>
 </template>
