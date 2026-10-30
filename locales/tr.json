@@ -160,8 +160,8 @@
                 ]
             },
             {
-                "start_date": "2023-04",
-                "end_date": "2024-03",
+                "start_date": "2023-02",
+                "end_date": "2023-09",
                 "title": "Bilgin Pro - Fullstack Web Developer",
                 "details": [
                     "Ölçeklenebilir e-ticaret ve ERP platformu modülleri (Laravel, Vue.js)",
@@ -169,7 +169,7 @@
                 ]
             },
             {
-                "start_date": "2024-04",
+                "start_date": "2023-09",
                 "end_date": null,
                 "title": "BTK / Freelance & Danışmanlık - Senior Fullstack Engineer",
                 "details": [
