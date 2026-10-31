@@ -47,12 +47,12 @@ const highlights = computed(() => {
 })
 
 const coreSkills = computed(() => [
-  { name: locale.value === 'tr' ? 'Fullstack Mimari' : 'Fullstack Architecture', icon: '🏛️' },
-  { name: 'REST & GraphQL APIs', icon: '🔌' },
-  { name: 'Microservices & Redis', icon: '⚡' },
-  { name: locale.value === 'tr' ? 'Reaktif Modern UI' : 'Modern Reactive UIs', icon: '✨' },
-  { name: 'DevOps & CI/CD', icon: '🚀' },
-  { name: locale.value === 'tr' ? 'Veritabanı Optimizasyonu' : 'Database Optimization', icon: '🗄️' }
+  { name: locale.value === 'tr' ? 'Fullstack Mimari' : 'Fullstack Architecture', icon: 'layers' },
+  { name: 'REST & GraphQL APIs', icon: 'plug' },
+  { name: 'Microservices & Redis', icon: 'activity' },
+  { name: locale.value === 'tr' ? 'Reaktif Modern UI' : 'Modern Reactive UIs', icon: 'code' },
+  { name: 'DevOps & CI/CD', icon: 'workflow' },
+  { name: locale.value === 'tr' ? 'Veritabanı Optimizasyonu' : 'Database Optimization', icon: 'database' }
 ])
 </script>
 
@@ -139,6 +139,9 @@ const coreSkills = computed(() => [
                   alt="Furkan Aymergen - Fullstack Engineer"
                   width="700"
                   height="800"
+                  sizes="256px sm:288px md:320px"
+                  loading="lazy"
+                  decoding="async"
                   class="w-full h-full object-cover object-top transition-all duration-700 group-hover:scale-108 filter contrast-[1.03] brightness-[1.02]"
                 />
 
@@ -147,7 +150,7 @@ const coreSkills = computed(() => [
 
                 <!-- Floating Holographic Badge 1 (Top-Left) -->
                 <div class="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-xl glass-panel text-[11px] font-mono font-bold text-cyan-300 border border-cyan-400/40 shadow-lg backdrop-blur-md">
-                  <span>⚡</span>
+                  <span><UiIcon name="activity" class="w-[1em] h-[1em] inline-block align-middle" /></span>
                   <span>{{ $t('about.badge_role') }}</span>
                 </div>
 
@@ -218,7 +221,7 @@ const coreSkills = computed(() => [
                   :key="sIdx"
                   class="flex items-center gap-2 px-3 py-2 rounded-xl glass-panel hover:bg-base-200/90 hover:border-cyan-400/40 transition-all duration-300 group/skill"
                 >
-                  <span class="text-sm group-hover/skill:scale-125 transition-transform">{{ skill.icon }}</span>
+                  <span class="text-sm group-hover/skill:scale-125 transition-transform"><UiIcon :name="skill.icon" class="w-[1em] h-[1em] inline-block align-middle" /></span>
                   <span class="text-xs font-mono text-base-content/85 font-medium truncate">{{ skill.name }}</span>
                 </div>
               </div>
@@ -240,7 +243,7 @@ const coreSkills = computed(() => [
 
             <div class="p-4 rounded-2xl glass-card flex items-center gap-3.5 hover:border-emerald-400/40 transition-all">
               <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 text-lg font-bold">
-                ⚡
+                <UiIcon name="activity" class="w-[1em] h-[1em]" />
               </div>
               <div>
                 <div class="text-xs font-mono text-base-content/60 uppercase">{{ $t('about.metrics.perf_title') }}</div>
@@ -250,7 +253,7 @@ const coreSkills = computed(() => [
 
             <div class="p-4 rounded-2xl glass-card flex items-center gap-3.5 hover:border-purple-400/40 transition-all">
               <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 text-lg font-bold">
-                🎯
+                <UiIcon name="target" class="w-[1em] h-[1em]" />
               </div>
               <div>
                 <div class="text-xs font-mono text-base-content/60 uppercase">{{ $t('about.metrics.ux_title') }}</div>
@@ -274,7 +277,7 @@ const coreSkills = computed(() => [
             <div>
               <div class="flex items-center justify-between mb-4">
                 <div class="text-3xl p-3.5 rounded-2xl glass-panel group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                  {{ item.icon }}
+                  <UiIcon :name="item.icon" class="w-[1em] h-[1em] inline-block align-middle" />
                 </div>
                 <span class="text-[11px] font-mono px-2.5 py-1 rounded-full glass-panel text-cyan-400 border border-cyan-400/20 font-semibold">
                   {{ item.tag }}

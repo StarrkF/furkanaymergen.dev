@@ -42,7 +42,7 @@
                 "href": "/mfa-cv.pdf"
             },
             "copy_email": "E-postayı Kopyala",
-            "email_copied": "✨ Email adresi panoya kopyalandı!"
+            "email_copied": "Email adresi panoya kopyalandı!"
         },
         "stats": {
             "exp": "Yıllık Deneyim",
@@ -78,19 +78,19 @@
         "text": "<p>Muhammed Furkan Aymergen, 2021 yılından bu yana profesyonel olarak yazılım geliştirme, sistem tasarımı ve modern web mimarileri üzerine çalışan bir Bilgisayar Mühendisidir.</p><p>Fullstack yazılım geliştirme süreçlerinde Laravel, Spring Boot, Vue 3, Nuxt 3 ve TypeScript ekosistemlerinde geniş tecrübeye sahiptir. Yüksek trafikli sistemler, RESTful API mimarileri, mikroservis yapıları ve ilişkisel/NoSQL veritabanı optimizasyonları alanlarında uçtan uca çözümler üretmektedir.</p><p>Temiz kod (Clean Code), SOLID prensipleri ve tasarım desenlerine (Design Patterns) bağlı kalarak; Docker, CI/CD ve Linux sunucu altyapılarıyla ölçeklenebilir, güvenli ve sürdürülebilir kurumsal uygulamalar inşa etmektedir.</p>",
         "highlights": [
             {
-                "icon": "⚡",
+                "icon": "layers",
                 "title": "Yüksek Performans & Ölçek",
                 "desc": "Optimize edilmiş veri sorguları, Redis önbellekleme ve mikroservis mimarileri.",
                 "tag": "Hızlı & Dayanıklı"
             },
             {
-                "icon": "🛡️",
+                "icon": "shield",
                 "title": "Temiz Kod & Test Edilebilirlik",
                 "desc": "SOLID prensipleri, Design Patterns ve sürdürülebilir mimari standartları.",
                 "tag": "Sürdürülebilir"
             },
             {
-                "icon": "🌐",
+                "icon": "globe",
                 "title": "Modern Fullstack Geliştirme",
                 "desc": "Laravel & Spring Boot gücü, Vue 3 & Nuxt 3 arayüz zarafeti ile bir arada.",
                 "tag": "Uçtan Uca"

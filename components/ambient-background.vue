@@ -3,6 +3,7 @@ import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 const colorMode = useColorMode()
 const canvasRef = ref<HTMLCanvasElement | null>(null)
+const isPaused = ref(false)
 let animationFrameId: number | null = null
 
 interface Particle {
@@ -26,6 +27,10 @@ const initCanvas = () => {
   if (!canvas) return
   const ctx = canvas.getContext('2d', { alpha: true })
   if (!ctx) return
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+  let previousTime: number | null = null
+  let needsResize = true
 
   const resize = () => {
     canvas.width = window.innerWidth
@@ -52,9 +57,6 @@ const initCanvas = () => {
     }
   }
 
-  resize()
-  window.addEventListener('resize', resize, { passive: true })
-
   const handleMouseMove = (e: MouseEvent) => {
     mouse.x = e.clientX
     mouse.y = e.clientY
@@ -78,12 +80,17 @@ const initCanvas = () => {
 
   const maxDistSq = 100 * 100
 
-  const render = () => {
-    if (document.hidden) {
-      animationFrameId = requestAnimationFrame(render)
-      return
+  const render = (time: number) => {
+    animationFrameId = null
+    if (document.hidden) return
+
+    if (needsResize) {
+      resize()
+      needsResize = false
     }
 
+    const delta = reducedMotion.matches ? 0 : previousTime === null ? 1 : Math.min((time - previousTime) / (1000 / 60), 3)
+    previousTime = time
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
     // Optimized single-pass line rendering with squared distances
@@ -108,8 +115,8 @@ const initCanvas = () => {
 
     // Update and draw particles with minimal canvas context switches
     for (const p of particles) {
-      p.x += p.vx
-      p.y += p.vy
+      p.x += p.vx * delta
+      p.y += p.vy * delta
 
       if (p.x < 0) p.x = canvas.width
       if (p.x > canvas.width) p.x = 0
@@ -139,17 +146,45 @@ const initCanvas = () => {
     }
     ctx.globalAlpha = 1
 
-    animationFrameId = requestAnimationFrame(render)
+    if (!reducedMotion.matches) startRender()
   }
 
-  render()
+  const startRender = () => {
+    if (!document.hidden && animationFrameId === null) {
+      animationFrameId = requestAnimationFrame(render)
+    }
+  }
+
+  const stopRender = () => {
+    if (animationFrameId !== null) cancelAnimationFrame(animationFrameId)
+    animationFrameId = null
+    previousTime = null
+  }
+
+  const handleResize = () => {
+    needsResize = true
+    startRender()
+  }
+
+  const updateMotion = () => {
+    stopRender()
+    isPaused.value = document.hidden || reducedMotion.matches
+    startRender()
+  }
+
+  window.addEventListener('resize', handleResize, { passive: true })
+  document.addEventListener('visibilitychange', updateMotion)
+  reducedMotion.addEventListener('change', updateMotion)
+  updateMotion()
 
   return () => {
-    window.removeEventListener('resize', resize)
+    window.removeEventListener('resize', handleResize)
     window.removeEventListener('mousemove', handleMouseMove)
     window.removeEventListener('touchmove', handleTouchMove)
     window.removeEventListener('mouseleave', handleMouseLeave)
-    if (animationFrameId) cancelAnimationFrame(animationFrameId)
+    document.removeEventListener('visibilitychange', updateMotion)
+    reducedMotion.removeEventListener('change', updateMotion)
+    stopRender()
   }
 }
 
@@ -165,7 +200,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" :class="{ 'ambient-paused': isPaused }" aria-hidden="true">
     <!-- Ambient Gradient Glowing Orbs -->
     <div class="ambient-orb orb-1"></div>
     <div class="ambient-orb orb-2"></div>
@@ -237,6 +272,16 @@ onBeforeUnmount(() => {
   bottom: -80px;
   right: 10%;
   animation: floatOrb 22s ease-in-out infinite alternate-reverse;
+}
+
+.ambient-paused .ambient-orb {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-orb {
+    animation-play-state: paused;
+  }
 }
 
 @keyframes floatOrb {

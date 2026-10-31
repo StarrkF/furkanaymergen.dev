@@ -1,5 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Oswald:wght@200;400;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap');
-@import 'tailwindcss';
+@import 'tailwindcss' source(none);
+@import './fonts.css';
+@source '../../app.vue';
+@source '../../components';
+@source '../../layouts';
+@source '../../pages';
 @plugin "daisyui" {
   themes: night --default, dracula, lemonade, cupcake, bumblebee, emerald, corporate, synthwave, halloween;
 }
@@ -276,11 +280,40 @@
 
 /* Hide default OS/browser cursor on pointer devices for immersive custom cursor experience */
 @media (pointer: fine) {
-  html,
-  body,
-  *,
-  *::before,
-  *::after {
+  html.custom-cursor-active,
+  .custom-cursor-active *,
+  .custom-cursor-active *::before,
+  .custom-cursor-active *::after {
     cursor: none !important;
   }
+}
+
+/* Content stays readable before hydration, without JS, and with reduced motion. */
+[data-aos]:not(.aos-init) {
+  opacity: 1;
+  transform: none;
+}
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 1000000;
+  padding: 12px 20px;
+  background: #0f172a;
+  color: #fff;
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: none; }
+:focus-visible { outline: 2px solid #38bdf8; outline-offset: 4px; }
+.motion-paused, .motion-paused * { animation-play-state: paused !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-aos] { opacity: 1 !important; transform: none !important; }
 }

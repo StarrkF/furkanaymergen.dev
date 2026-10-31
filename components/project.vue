@@ -262,8 +262,9 @@ const breakpoints = {
                   </svg>
                   <span>{{ $t('project.button.source') }}</span>
                 </a>
-                <span v-else class="text-[11px] font-mono text-base-content/40 italic px-2">
-                  🔒 {{ $t('project.proprietary') }}
+                <span v-else class="text-[11px] font-mono text-base-content/40 italic px-2 inline-flex items-center gap-1.5">
+                  <UiIcon name="lock" class="w-3.5 h-3.5 shrink-0" />
+                  {{ $t('project.proprietary') }}
                 </span>
 
                 <!-- Live Preview Link -->

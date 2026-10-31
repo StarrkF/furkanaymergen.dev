@@ -6,8 +6,6 @@ export default defineI18nConfig(() => {
   return {
     legacy: false,
     locale: 'tr',
-    persistLocale: true, 
-    useCookie: true,
     messages: {
       en,
       tr

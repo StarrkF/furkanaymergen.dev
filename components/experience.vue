@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, watch } from 'vue'
+import { ref, watch } from 'vue'
 
 const { tm, locale } = useI18n()
 const activeTab = ref(1)
@@ -14,13 +14,7 @@ const loadAndReverseData = () => {
   workLifeData.value = Array.isArray(work) ? [...work].reverse() : []
 }
 
-onMounted(() => {
-  loadAndReverseData()
-})
-
-watch(locale, () => {
-  loadAndReverseData()
-})
+watch(locale, loadAndReverseData, { immediate: true })
 </script>
 
 <template>
@@ -48,7 +42,7 @@ watch(locale, () => {
                 : 'text-base-content/70 hover:text-base-content hover:bg-base-content/10'
             ]"
           >
-            <span>💼</span>
+            <span><UiIcon name="briefcase" class="w-[1em] h-[1em] inline-block align-middle" /></span>
             <span>{{ $t('experience.work_life_tab') }}</span>
             <span class="text-[10px] font-mono px-1.5 py-0.5 rounded-md" :class="activeTab === 1 ? 'bg-black/20 text-slate-950' : 'bg-base-content/10 text-base-content/60'">
               {{ workLifeData.length }}
@@ -65,7 +59,7 @@ watch(locale, () => {
                 : 'text-base-content/70 hover:text-base-content hover:bg-base-content/10'
             ]"
           >
-            <span>🎓</span>
+            <span><UiIcon name="graduation" class="w-[1em] h-[1em] inline-block align-middle" /></span>
             <span>{{ $t('experience.education_tab') }}</span>
             <span class="text-[10px] font-mono px-1.5 py-0.5 rounded-md" :class="activeTab === 2 ? 'bg-black/20 text-white' : 'bg-base-content/10 text-base-content/60'">
               {{ educationData.length }}

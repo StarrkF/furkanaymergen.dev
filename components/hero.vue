@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
-import confetti from 'canvas-confetti'
-import { useToast } from '~/composables/useToast'
+import { ref, computed, watch, onBeforeUnmount } from 'vue'
 
 const { tm, t, locale } = useI18n()
-const { showToast } = useToast()
+const heroRef = ref<HTMLElement | null>(null)
+const isActive = useSectionActivity(heroRef)
 
 const hero = computed(() => tm('hero'))
 const currentRoleIndex = ref(0)
@@ -43,26 +42,28 @@ const typeEffect = () => {
   typeTimeout = setTimeout(typeEffect, delay)
 }
 
-const copyEmail = () => {
-  navigator.clipboard.writeText('faymergen98@gmail.com')
-  confetti({
-    particleCount: 50,
-    spread: 60,
-    origin: { y: 0.75 },
-    colors: ['#38bdf8', '#818cf8', '#34d399', '#f472b6']
-  })
-  showToast(t('hero.button.email_copied'))
-}
+const copyEmail = useCopyEmail(50, 60, 0.75)
 
 const stats = computed(() => [
-  { value: '5+', label: t('hero.stats.exp'), icon: '⚡' },
-  { value: '10+', label: t('hero.stats.projects'), icon: '🚀' },
-  { value: '15+', label: t('hero.stats.tools'), icon: '🛠️' },
-  { value: '100%', label: t('hero.stats.arch'), icon: '💎' }
+  { value: '5+', label: t('hero.stats.exp'), icon: 'activity' },
+  { value: '10+', label: t('hero.stats.projects'), icon: 'layers' },
+  { value: '15+', label: t('hero.stats.tools'), icon: 'tools' },
+  { value: '100%', label: t('hero.stats.arch'), icon: 'shield' }
 ])
 
-onMounted(() => {
-  typeEffect()
+watch(isActive, active => {
+  clearTimeout(typeTimeout)
+  if (active) typeTimeout = setTimeout(typeEffect, 2200)
+  else currentChar.value = roles.value[currentRoleIndex.value]
+}, { immediate: true })
+
+watch(locale, () => {
+  clearTimeout(typeTimeout)
+  currentRoleIndex.value = 0
+  currentChar.value = ''
+  isDeleting.value = false
+  if (isActive.value) typeEffect()
+  else currentChar.value = roles.value[0]
 })
 
 onBeforeUnmount(() => {
@@ -71,7 +72,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <section id="home" class="relative min-h-screen pt-28 sm:pt-36 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-12 flex flex-col justify-center items-center overflow-hidden">
+  <section ref="heroRef" id="home" :class="{ 'motion-paused': !isActive }" class="relative min-h-screen pt-28 sm:pt-36 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-12 flex flex-col justify-center items-center overflow-hidden">
     <!-- Main Content Container -->
     <div class="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center z-10">
       
@@ -99,7 +100,8 @@ onBeforeUnmount(() => {
           </h1>
           
           <!-- Dynamic Typewriter Line -->
-          <div class="flex items-center justify-center lg:justify-start min-h-[44px] text-xl sm:text-2xl md:text-3xl font-heading font-semibold text-cyan-400 gap-1 flex-wrap">
+          <p class="sr-only">{{ roles.join(', ') }}</p>
+          <div aria-hidden="true" class="flex items-center justify-center lg:justify-start min-h-[44px] text-xl sm:text-2xl md:text-3xl font-heading font-semibold text-cyan-400 gap-1 flex-wrap">
             <span class="text-base-content/40 font-mono text-lg sm:text-xl">&lt;</span>
             <span class="text-gradient-emerald">{{ currentChar }}</span>
             <span class="animate-blink text-cyan-400 font-mono font-bold">|</span>
@@ -261,7 +263,7 @@ onBeforeUnmount(() => {
             {{ stat.value }}
           </div>
           <div class="text-xs sm:text-sm font-sans font-medium text-base-content/70 mt-1 flex items-center gap-1">
-            <span>{{ stat.icon }}</span>
+            <UiIcon :name="stat.icon" class="w-4 h-4 shrink-0" />
             <span>{{ stat.label }}</span>
           </div>
         </div>
@@ -273,9 +275,8 @@ onBeforeUnmount(() => {
       href="#about"
       v-smooth-scroll
       class="mt-10 sm:mt-12 inline-flex flex-col items-center gap-2 text-base-content/60 hover:text-cyan-400 transition-colors z-10 cursor-pointer group"
-      aria-label="Scroll to About Section"
     >
-      <span class="text-[11px] font-mono tracking-widest uppercase text-base-content/50 group-hover:text-cyan-400 transition-colors">
+      <span class="text-[11px] font-mono tracking-widest uppercase text-base-content/70 group-hover:text-cyan-400 transition-colors">
         {{ $t('hero.explore') }}
       </span>
       <div class="w-5 h-9 rounded-full border-2 border-base-content/30 group-hover:border-cyan-400 flex justify-center pt-1.5 transition-colors">

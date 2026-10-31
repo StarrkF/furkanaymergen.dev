@@ -42,7 +42,7 @@
                 "href": "/mfa-cv-eng.pdf"
             },
             "copy_email": "Copy Email",
-            "email_copied": "✨ Email address copied to clipboard!"
+            "email_copied": "Email address copied to clipboard!"
         },
         "stats": {
             "exp": "Years Experience",
@@ -78,19 +78,19 @@
         "text": "<p>Muhammed Furkan Aymergen is a Computer Engineer working professionally in software engineering, system architecture, and modern web applications since 2021.</p><p>He possesses extensive experience across the fullstack software development spectrum, specializing in Laravel, Spring Boot, Vue 3, Nuxt 3, and TypeScript ecosystems. His core focus includes building high-throughput systems, robust RESTful APIs, microservices, and database performance optimization.</p><p>Adhering strictly to Clean Code, SOLID principles, and design patterns, he designs scalable, secure, and maintainable enterprise applications backed by Docker, CI/CD workflows, and Linux infrastructure.</p>",
         "highlights": [
             {
-                "icon": "⚡",
+                "icon": "layers",
                 "title": "High Performance & Scale",
                 "desc": "Optimized database queries, Redis caching strategies, and resilient microservice architectures.",
                 "tag": "Fast & Resilient"
             },
             {
-                "icon": "🛡️",
+                "icon": "shield",
                 "title": "Clean Code & Testability",
                 "desc": "Strict adherence to SOLID principles, Design Patterns, and sustainable engineering standards.",
                 "tag": "Maintainable"
             },
             {
-                "icon": "🌐",
+                "icon": "globe",
                 "title": "Modern Fullstack Craft",
                 "desc": "Laravel & Spring Boot robustness paired seamlessly with Vue 3 & Nuxt 3 reactive interfaces.",
                 "tag": "End-to-End"

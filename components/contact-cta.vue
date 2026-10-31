@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue'
-import confetti from 'canvas-confetti'
-import { useToast } from '~/composables/useToast'
+import { ref, watch, onBeforeUnmount } from 'vue'
 
-const { t, locale } = useI18n()
-const { showToast } = useToast()
+const { locale } = useI18n()
+const contactRef = ref<HTMLElement | null>(null)
+const isActive = useSectionActivity(contactRef, false)
 
 const currentTime = ref('')
 let timer: any = null
@@ -19,20 +18,14 @@ const updateTime = () => {
   })
 }
 
-const copyEmail = () => {
-  navigator.clipboard.writeText('faymergen98@gmail.com')
-  confetti({
-    particleCount: 70,
-    spread: 70,
-    origin: { y: 0.8 },
-    colors: ['#38bdf8', '#818cf8', '#34d399', '#f472b6', '#fbbf24']
-  })
-  showToast(t('hero.button.email_copied'))
-}
+const copyEmail = useCopyEmail(70, 70, 0.8)
 
-onMounted(() => {
-  updateTime()
-  timer = setInterval(updateTime, 1000)
+watch(isActive, active => {
+  clearInterval(timer)
+  if (active) {
+    updateTime()
+    timer = setInterval(updateTime, 1000)
+  }
 })
 
 onBeforeUnmount(() => {
@@ -41,7 +34,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <section id="contact" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 relative z-10">
+  <section ref="contactRef" id="contact" :class="{ 'motion-paused': !isActive }" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-12 relative z-10">
     <div class="max-w-7xl mx-auto">
       
       <!-- Main Glassmorphic CTA Card -->
@@ -101,7 +94,7 @@ onBeforeUnmount(() => {
         <!-- Live Clock & Location Badge -->
         <div class="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-base-content/10 w-full flex flex-wrap items-center justify-around gap-4 sm:gap-6 text-xs sm:text-sm font-mono text-base-content/60">
           <div class="flex items-center gap-2">
-            <span>📍</span>
+            <UiIcon name="location" class="w-4 h-4 shrink-0" />
             <span>{{ $t('contact.location') }}</span>
           </div>
           <div class="flex items-center gap-2">
@@ -109,7 +102,7 @@ onBeforeUnmount(() => {
             <span>{{ $t('contact.local_time') }} {{ currentTime }} TRT</span>
           </div>
           <div class="flex items-center gap-2">
-            <span>⚡</span>
+            <UiIcon name="message" class="w-4 h-4 shrink-0" />
             <span>{{ $t('contact.collaboration') }}</span>
           </div>
         </div>

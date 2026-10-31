@@ -2,17 +2,14 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 const colorMode = useColorMode()
-const { locale, setLocale, t } = useI18n()
+const { locale } = useI18n()
+const switchLocalePath = useSwitchLocalePath()
 
 const isScrolled = ref(false)
 const mobileMenuOpen = ref(false)
 
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 40
-}
-
-const toggleLocale = () => {
-  setLocale(locale.value === 'tr' ? 'en' : 'tr')
 }
 
 const setTheme = (theme: string) => {
@@ -82,9 +79,9 @@ onBeforeUnmount(() => {
       <!-- Right Action Controls (Language, Theme, Mobile Toggle) -->
       <div class="flex items-center gap-2 sm:gap-3">
         <!-- Language Switcher Pill -->
-        <button
-          @click="toggleLocale"
-          type="button"
+        <NuxtLink
+          :to="switchLocalePath(locale === 'tr' ? 'en' : 'tr')"
+          :prefetch="false"
           class="flex items-center gap-2 px-2.5 sm:px-3 py-1.5 rounded-full glass-panel text-xs font-mono font-semibold text-base-content/90 transition-all duration-300 cursor-pointer shadow-xs hover:border-cyan-400/50 hover:text-cyan-400 group"
           :title="locale === 'tr' ? 'Switch to English' : 'Türkçe\'ye Geç'"
         >
@@ -98,13 +95,13 @@ onBeforeUnmount(() => {
             />
           </span>
           <span class="uppercase tracking-wider font-bold text-xs">{{ locale }}</span>
-        </button>
+        </NuxtLink>
 
         <!-- Theme Switcher Dropdown -->
         <div class="dropdown dropdown-end">
-          <label
+          <button
+            type="button"
             tabindex="0"
-            role="button"
             class="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full glass-panel text-cyan-400 hover:text-cyan-300 transition-all duration-300 cursor-pointer shadow-xs hover:border-cyan-400/50"
             :title="$t('app.theme') || 'Theme'"
           >
@@ -119,7 +116,7 @@ onBeforeUnmount(() => {
               <path d="m6.34 17.66-1.41 1.41"/>
               <path d="m19.07 4.93-1.41 1.41"/>
             </svg>
-          </label>
+          </button>
           <ul
             tabindex="0"
             class="dropdown-content z-50 menu p-2 mt-3 shadow-2xl bg-base-200/95 backdrop-blur-2xl rounded-2xl w-52 border border-base-content/15 text-base-content space-y-1 font-sans text-xs"
@@ -154,6 +151,8 @@ onBeforeUnmount(() => {
         <button
           type="button"
           @click="mobileMenuOpen = !mobileMenuOpen"
+          :aria-expanded="mobileMenuOpen"
+          aria-controls="mobile-navigation"
           class="lg:hidden flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full glass-panel text-base-content/90 hover:text-base-content"
           aria-label="Toggle Navigation Menu"
         >
@@ -177,6 +176,7 @@ onBeforeUnmount(() => {
       leave-to-class="opacity-0 -translate-y-4"
     >
       <div
+        id="mobile-navigation"
         v-if="mobileMenuOpen"
         class="lg:hidden fixed top-18 left-3 right-3 p-5 bg-base-200/95 backdrop-blur-2xl rounded-3xl border border-base-content/15 shadow-[0_20px_60px_rgba(0,0,0,0.6)] z-50 flex flex-col gap-3"
       >
@@ -210,24 +210,26 @@ onBeforeUnmount(() => {
         <div class="flex items-center justify-between p-3 rounded-2xl glass-panel border border-base-content/10 mt-2">
           <span class="text-xs font-mono text-base-content/70 font-semibold">{{ locale === 'tr' ? 'Dil Seçimi' : 'Language' }}</span>
           <div class="flex items-center gap-1.5">
-            <button
-              type="button"
-              @click="setLocale('tr')"
+            <NuxtLink
+              :to="switchLocalePath('tr')"
+              :prefetch="false"
+              @click="mobileMenuOpen = false"
               class="flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer"
               :class="locale === 'tr' ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 shadow-xs' : 'text-base-content/70 hover:bg-base-content/5'"
             >
-              <img src="/images/tr.png" alt="Türkçe" class="w-4 h-4 rounded-full object-cover border border-base-content/20 shrink-0" />
+              <img src="/images/tr.png" alt="Türkçe" width="16" height="16" class="w-4 h-4 rounded-full object-cover border border-base-content/20 shrink-0" />
               <span>TR</span>
-            </button>
-            <button
-              type="button"
-              @click="setLocale('en')"
+            </NuxtLink>
+            <NuxtLink
+              :to="switchLocalePath('en')"
+              :prefetch="false"
+              @click="mobileMenuOpen = false"
               class="flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer"
               :class="locale === 'en' ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 shadow-xs' : 'text-base-content/70 hover:bg-base-content/5'"
             >
-              <img src="/images/en.png" alt="English" class="w-4 h-4 rounded-full object-cover border border-base-content/20 shrink-0" />
+              <img src="/images/en.png" alt="English" width="16" height="16" class="w-4 h-4 rounded-full object-cover border border-base-content/20 shrink-0" />
               <span>EN</span>
-            </button>
+            </NuxtLink>
           </div>
         </div>
       </div>

@@ -67,7 +67,7 @@ const cvHref = computed(() => {
           >
             <app-logo size="md" :showSubtitle="false" />
           </a>
-          <p class="text-xs font-mono text-base-content/50 text-center sm:text-left mt-1">
+          <p class="text-xs font-mono text-base-content/65 text-center sm:text-left mt-1">
             © {{ currentYear }} Furkan Aymergen. {{ $t('footer.rights') }}
           </p>
         </div>
@@ -88,7 +88,7 @@ const cvHref = computed(() => {
           </a>
         </nav>
 
-        <!-- Right: Back to Top Rocket Trigger -->
+        <!-- Right: Back to Top Trigger -->
         <div class="flex items-center gap-4">
           <button
             type="button"
@@ -96,7 +96,7 @@ const cvHref = computed(() => {
             class="flex items-center gap-2 px-4 py-2 rounded-full glass-panel text-base-content/80 hover:text-cyan-400 text-xs font-mono transition-all duration-300 cursor-pointer shadow-xs hover:scale-105 group hover:border-cyan-400/50"
             :title="$t('footer.back_to_top')"
           >
-            <span class="group-hover:-translate-y-1 transition-transform">🚀</span>
+            <UiIcon name="arrow-up" class="w-4 h-4 group-hover:-translate-y-1 transition-transform" />
             <span>{{ $t('footer.back_to_top') }}</span>
           </button>
         </div>
