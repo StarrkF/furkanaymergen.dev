@@ -59,8 +59,8 @@ const coreSkills = computed(() => [
 <template>
   <section id="about" class="min-h-screen py-24 sm:py-32 px-4 sm:px-6 lg:px-12 relative z-10 overflow-hidden">
     <!-- Ambient Glow Accent for About Section -->
-    <div class="absolute top-1/4 -left-40 w-96 h-96 bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none"></div>
-    <div class="absolute bottom-1/4 -right-40 w-96 h-96 bg-purple-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+    <div class="absolute top-1/4 -left-40 w-96 h-96 bg-base-content/5 rounded-full blur-[140px] pointer-events-none"></div>
+    <div class="absolute bottom-1/4 -right-40 w-96 h-96 bg-base-content/5 rounded-full blur-[140px] pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto">
       
@@ -97,15 +97,15 @@ const coreSkills = computed(() => [
             ></div>
 
             <!-- Animated Cyber Frame Line & Ambient Corner Glows -->
-            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-75 animate-pulse"></div>
-            <div class="absolute -top-24 -left-24 w-48 h-48 bg-cyan-400/20 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="absolute -bottom-24 -right-24 w-48 h-48 bg-purple-500/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent opacity-75 animate-pulse"></div>
+            <div class="absolute -top-24 -left-24 w-48 h-48 bg-base-content/5 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-24 -right-24 w-48 h-48 bg-base-content/5 rounded-full blur-3xl pointer-events-none"></div>
 
             <!-- Card Header: HUD System Info -->
             <div class="flex items-center justify-between pb-4 border-b border-base-content/10 z-20">
               <div class="flex items-center gap-2.5">
                 <app-logo size="sm" :showText="false" :interactive="false" />
-                <span class="text-xs font-mono font-bold tracking-wider uppercase text-cyan-400">
+                <span class="text-xs font-mono font-bold tracking-wider uppercase text-base-content/70">
                   {{ $t('about.hud_role') }}
                 </span>
               </div>
@@ -118,19 +118,19 @@ const coreSkills = computed(() => [
             <div class="relative my-6 sm:my-8 flex items-center justify-center z-10">
               
               <!-- Multi-Layer Soft Ambient Aura (Static, non-rotating elegant glow) -->
-              <div class="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-cyan-500/25 via-sky-500/15 to-purple-600/25 blur-2xl group-hover:blur-3xl group-hover:scale-105 transition-all duration-700 opacity-60 group-hover:opacity-100"></div>
+              <div class="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-base-content/5 via-primary/5 to-base-content/5 blur-2xl group-hover:blur-3xl group-hover:scale-105 transition-all duration-700 opacity-60 group-hover:opacity-100"></div>
 
               <!-- Main Portrait Container with 3D Depth & Corner Tech Brackets -->
-              <div class="relative w-64 h-72 sm:w-72 sm:h-80 md:w-80 md:h-96 rounded-2xl overflow-hidden bg-base-300/80 border-2 border-base-content/20 group-hover:border-cyan-400 shadow-[0_20px_50px_rgba(0,0,0,0.5)] group-hover:shadow-[0_20px_60px_rgba(6,182,212,0.25)] transition-all duration-500">
+              <div class="relative w-64 h-72 sm:w-72 sm:h-80 md:w-80 md:h-96 rounded-2xl overflow-hidden bg-base-300/80 border-2 border-base-content/20 group-hover:border-primary/30 shadow-sm group-hover:shadow-md transition-all duration-500">
                 
                 <!-- Smooth Diagonal Light Shimmer Sweep on Hover -->
                 <div class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out bg-gradient-to-r from-transparent via-white/15 to-transparent skew-x-12 z-20 pointer-events-none"></div>
 
                 <!-- Futuristic Corner HUD Focus Brackets -->
-                <div class="absolute top-2.5 left-2.5 w-3.5 h-3.5 border-t-2 border-l-2 border-cyan-400/60 group-hover:border-cyan-300 group-hover:scale-115 transition-all duration-300 z-20 pointer-events-none"></div>
-                <div class="absolute top-2.5 right-2.5 w-3.5 h-3.5 border-t-2 border-r-2 border-cyan-400/60 group-hover:border-cyan-300 group-hover:scale-115 transition-all duration-300 z-20 pointer-events-none"></div>
-                <div class="absolute bottom-2.5 left-2.5 w-3.5 h-3.5 border-b-2 border-l-2 border-cyan-400/60 group-hover:border-cyan-300 group-hover:scale-115 transition-all duration-300 z-20 pointer-events-none"></div>
-                <div class="absolute bottom-2.5 right-2.5 w-3.5 h-3.5 border-b-2 border-r-2 border-cyan-400/60 group-hover:border-cyan-300 group-hover:scale-115 transition-all duration-300 z-20 pointer-events-none"></div>
+                <div class="absolute top-2.5 left-2.5 w-3.5 h-3.5 border-t-2 border-l-2 border-primary/30 group-hover:border-primary/50 group-hover:scale-115 transition-all duration-300 z-20 pointer-events-none"></div>
+                <div class="absolute top-2.5 right-2.5 w-3.5 h-3.5 border-t-2 border-r-2 border-primary/30 group-hover:border-primary/50 group-hover:scale-115 transition-all duration-300 z-20 pointer-events-none"></div>
+                <div class="absolute bottom-2.5 left-2.5 w-3.5 h-3.5 border-b-2 border-l-2 border-primary/30 group-hover:border-primary/50 group-hover:scale-115 transition-all duration-300 z-20 pointer-events-none"></div>
+                <div class="absolute bottom-2.5 right-2.5 w-3.5 h-3.5 border-b-2 border-r-2 border-primary/30 group-hover:border-primary/50 group-hover:scale-115 transition-all duration-300 z-20 pointer-events-none"></div>
 
                 <!-- High Quality Developer Portrait -->
                 <nuxt-img
@@ -149,14 +149,14 @@ const coreSkills = computed(() => [
                 <div class="absolute inset-0 bg-gradient-to-t from-base-300/90 via-transparent to-transparent opacity-80 pointer-events-none"></div>
 
                 <!-- Floating Holographic Badge 1 (Top-Left) -->
-                <div class="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-xl glass-panel text-[11px] font-mono font-bold text-cyan-300 border border-cyan-400/40 shadow-lg backdrop-blur-md">
+                <div class="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-xl glass-panel text-[11px] font-mono font-bold text-base-content border border-base-content/10 shadow-sm backdrop-blur-md">
                   <span><UiIcon name="activity" class="w-[1em] h-[1em] inline-block align-middle" /></span>
                   <span>{{ $t('about.badge_role') }}</span>
                 </div>
 
                 <!-- Floating Holographic Badge 2 (Bottom-Right) -->
-                <div class="absolute bottom-4 right-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-xl glass-panel text-[11px] font-mono font-bold text-emerald-300 border border-emerald-400/40 shadow-lg backdrop-blur-md">
-                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <div class="absolute bottom-4 right-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-xl glass-panel text-[11px] font-mono font-bold text-base-content border border-base-content/10 shadow-sm backdrop-blur-md">
+                  <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
                   <span>{{ $t('about.badge_exp') }}</span>
                 </div>
               </div>
@@ -164,7 +164,7 @@ const coreSkills = computed(() => [
 
             <!-- Card Bottom: Interactive Quick Credentials -->
             <div class="w-full grid grid-cols-2 gap-3 pt-4 border-t border-base-content/10 z-20">
-              <div class="p-3.5 rounded-2xl glass-panel text-center group-hover:border-cyan-400/30 transition-colors">
+              <div class="p-3.5 rounded-2xl glass-panel text-center group-hover:border-base-content/20 transition-colors">
                 <div class="text-[10px] font-mono text-base-content/60 uppercase tracking-wider font-semibold">
                   {{ $t('about.edu_label') }}
                 </div>
@@ -172,11 +172,11 @@ const coreSkills = computed(() => [
                   {{ $t('about.edu_val') }}
                 </div>
               </div>
-              <div class="p-3.5 rounded-2xl glass-panel text-center group-hover:border-cyan-400/30 transition-colors">
+              <div class="p-3.5 rounded-2xl glass-panel text-center group-hover:border-base-content/20 transition-colors">
                 <div class="text-[10px] font-mono text-base-content/60 uppercase tracking-wider font-semibold">
                   {{ $t('about.focus_label') }}
                 </div>
-                <div class="text-xs sm:text-sm font-heading font-bold text-gradient-primary mt-1">
+                <div class="text-xs sm:text-sm font-heading font-bold text-base-content mt-1">
                   {{ $t('about.focus_val') }}
                 </div>
               </div>
@@ -189,13 +189,13 @@ const coreSkills = computed(() => [
         <div data-aos="fade-left" data-aos-duration="900" class="lg:col-span-7 flex flex-col justify-between space-y-6">
           
           <!-- Narrative Card -->
-          <div class="rounded-3xl glass-card p-6 sm:p-10 flex flex-col justify-between hover:border-cyan-400/40 transition-all duration-500 relative overflow-hidden flex-1">
+          <div class="rounded-3xl glass-card p-6 sm:p-10 flex flex-col justify-between hover:border-base-content/20 transition-all duration-500 relative overflow-hidden flex-1">
             
             <!-- Top Subtle Accent -->
             <div class="flex items-center justify-between gap-3 mb-6 flex-wrap pb-4 border-b border-base-content/10">
               <div class="flex items-center gap-2 flex-wrap">
-                <span class="px-3.5 py-1.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 text-xs font-mono font-bold flex items-center gap-1.5">
-                  <span class="text-emerald-400">●</span>
+                <span class="px-3.5 py-1.5 rounded-full bg-base-200 text-base-content/70 border border-base-content/10 text-xs font-mono font-bold flex items-center gap-1.5">
+                  <span class="text-primary">●</span>
                   {{ $t('about.story_tag') }}
                 </span>
                 <span class="px-3 py-1 rounded-full glass-panel text-xs font-mono text-base-content/70">
@@ -219,7 +219,7 @@ const coreSkills = computed(() => [
                 <div
                   v-for="(skill, sIdx) in coreSkills"
                   :key="sIdx"
-                  class="flex items-center gap-2 px-3 py-2 rounded-xl glass-panel hover:bg-base-200/90 hover:border-cyan-400/40 transition-all duration-300 group/skill"
+                  class="flex items-center gap-2 px-3 py-2 rounded-xl glass-panel hover:bg-base-200/90 hover:border-base-content/20 transition-all duration-300 group/skill"
                 >
                   <span class="text-sm group-hover/skill:scale-125 transition-transform"><UiIcon :name="skill.icon" class="w-[1em] h-[1em] inline-block align-middle" /></span>
                   <span class="text-xs font-mono text-base-content/85 font-medium truncate">{{ skill.name }}</span>
@@ -231,8 +231,8 @@ const coreSkills = computed(() => [
 
           <!-- Bottom Micro Metrics Ribbon -->
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div class="p-4 rounded-2xl glass-card flex items-center gap-3.5 hover:border-cyan-400/40 transition-all">
-              <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 text-lg font-bold">
+            <div class="p-4 rounded-2xl glass-card flex items-center gap-3.5 hover:border-base-content/20 transition-all">
+              <div class="w-10 h-10 rounded-xl bg-base-200 border border-base-content/10 flex items-center justify-center text-base-content/70 text-lg font-bold">
                 ✓
               </div>
               <div>
@@ -241,8 +241,8 @@ const coreSkills = computed(() => [
               </div>
             </div>
 
-            <div class="p-4 rounded-2xl glass-card flex items-center gap-3.5 hover:border-emerald-400/40 transition-all">
-              <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 text-lg font-bold">
+            <div class="p-4 rounded-2xl glass-card flex items-center gap-3.5 hover:border-base-content/20 transition-all">
+              <div class="w-10 h-10 rounded-xl bg-base-200 border border-base-content/10 flex items-center justify-center text-base-content/70 text-lg font-bold">
                 <UiIcon name="activity" class="w-[1em] h-[1em]" />
               </div>
               <div>
@@ -251,8 +251,8 @@ const coreSkills = computed(() => [
               </div>
             </div>
 
-            <div class="p-4 rounded-2xl glass-card flex items-center gap-3.5 hover:border-purple-400/40 transition-all">
-              <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 text-lg font-bold">
+            <div class="p-4 rounded-2xl glass-card flex items-center gap-3.5 hover:border-base-content/20 transition-all">
+              <div class="w-10 h-10 rounded-xl bg-base-200 border border-base-content/10 flex items-center justify-center text-base-content/70 text-lg font-bold">
                 <UiIcon name="target" class="w-[1em] h-[1em]" />
               </div>
               <div>
@@ -269,21 +269,21 @@ const coreSkills = computed(() => [
           <div
             v-for="(item, idx) in highlights"
             :key="idx"
-            class="rounded-3xl glass-card p-6 sm:p-7 hover:border-cyan-400/50 transition-all duration-400 hover:-translate-y-1.5 group relative overflow-hidden flex flex-col justify-between"
+            class="rounded-3xl glass-card p-6 sm:p-7 hover:border-base-content/20 transition-all duration-400 hover:-translate-y-1.5 group relative overflow-hidden flex flex-col justify-between"
           >
             <!-- Card Corner Glow -->
-            <div class="absolute -top-12 -right-12 w-28 h-28 bg-cyan-400/10 rounded-full blur-2xl group-hover:bg-cyan-400/20 transition-all duration-500 pointer-events-none"></div>
+            <div class="absolute -top-12 -right-12 w-28 h-28 bg-base-content/5 rounded-full blur-2xl group-hover:bg-base-content/10 transition-all duration-500 pointer-events-none"></div>
 
             <div>
               <div class="flex items-center justify-between mb-4">
                 <div class="text-3xl p-3.5 rounded-2xl glass-panel group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                   <UiIcon :name="item.icon" class="w-[1em] h-[1em] inline-block align-middle" />
                 </div>
-                <span class="text-[11px] font-mono px-2.5 py-1 rounded-full glass-panel text-cyan-400 border border-cyan-400/20 font-semibold">
+                <span class="text-[11px] font-mono px-2.5 py-1 rounded-full glass-panel text-base-content/70 border border-base-content/10 font-semibold">
                   {{ item.tag }}
                 </span>
               </div>
-              <h3 class="text-lg font-heading font-bold text-base-content group-hover:text-cyan-400 transition-colors">
+              <h3 class="text-lg font-heading font-bold text-base-content transition-colors">
                 {{ item.title }}
               </h3>
               <p class="text-sm font-sans text-base-content/75 mt-2.5 leading-relaxed">
@@ -291,7 +291,7 @@ const coreSkills = computed(() => [
               </p>
             </div>
 
-            <div class="mt-5 pt-4 border-t border-base-content/10 flex items-center justify-between text-xs font-mono text-base-content/50 group-hover:text-cyan-400 transition-colors">
+            <div class="mt-5 pt-4 border-t border-base-content/10 flex items-center justify-between text-xs font-mono text-base-content/50 group-hover:text-primary transition-colors">
               <span>{{ $t('about.learn_more') }}</span>
               <span class="group-hover:translate-x-1 transition-transform">→</span>
             </div>

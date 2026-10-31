@@ -2,6 +2,7 @@
 import { computed, onMounted, onBeforeUnmount } from 'vue'
 
 const { locale } = useI18n()
+const colorMode = useColorMode()
 const scrollProgress = useState('scroll-progress', () => 0)
 let scrollFrame = 0
 let scrollHeight = 0
@@ -53,7 +54,7 @@ useHead(() => ({
     { name: 'description', content: pageDescription.value },
     { name: 'author', content: 'Furkan Aymergen' },
     { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' },
-    { name: 'theme-color', content: '#08090d' },
+    { name: 'theme-color', content: colorMode.value === 'light' ? '#f7f7f8' : '#141518' },
 
     // OpenGraph
     { property: 'og:title', content: pageTitle.value },
@@ -163,11 +164,11 @@ useHead(() => ({
 </script>
 
 <template>
-  <div class="relative min-h-screen bg-base-100 text-base-content selection:bg-cyan-500 selection:text-slate-950 font-sans transition-colors duration-500">
+  <div class="relative min-h-screen bg-base-100 text-base-content selection:bg-primary selection:text-primary-content font-sans transition-colors duration-200">
     <a class="skip-link" href="#main-content">{{ locale === 'tr' ? 'Ana içeriğe geç' : 'Skip to main content' }}</a>
     <!-- Top Scroll Progress Bar (GPU Accelerated) -->
     <div
-      class="fixed top-0 left-0 right-0 h-1 bg-linear-to-r from-cyan-400 via-sky-500 to-purple-500 z-999999 transition-transform duration-75 origin-left shadow-[0_0_12px_#38bdf8] will-change-transform"
+      class="fixed top-0 left-0 right-0 h-0.5 bg-primary/70 z-999999 transition-transform duration-75 origin-left will-change-transform"
       :style="{ transform: `scaleX(${scrollProgress / 100})` }"
     ></div>
 

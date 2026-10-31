@@ -194,10 +194,10 @@ onBeforeUnmount(() => {
     <!-- Precision Core Dot with Radial Energy Glow -->
     <div
       ref="dotRef"
-      class="fixed top-0 left-0 w-2.5 h-2.5 -ml-[5px] -mt-[5px] rounded-full bg-gradient-to-tr from-cyan-400 via-sky-300 to-emerald-400 pointer-events-none will-change-transform shadow-[0_0_12px_#38bdf8,0_0_4px_#34d399]"
+      class="cursor-dot fixed top-0 left-0 w-2.5 h-2.5 -ml-[5px] -mt-[5px] rounded-full bg-primary pointer-events-none will-change-transform"
     >
       <!-- Mini Inner Core Spark -->
-      <div class="absolute inset-[0.5px] rounded-full bg-white opacity-85"></div>
+      <div class="absolute inset-[0.5px] rounded-full bg-base-100 opacity-85"></div>
     </div>
 
     <!-- Futuristic Fluid Kinetic Follower Ring -->
@@ -207,12 +207,12 @@ onBeforeUnmount(() => {
     >
       <!-- Outer Ring Border & Aura -->
       <div
-        class="absolute inset-0 rounded-full transition-all duration-200"
+        class="cursor-ring absolute inset-0 rounded-full transition-all duration-200"
         :class="[
           isHovering
-            ? 'border-2 border-cyan-400 bg-cyan-500/15 shadow-[0_0_25px_rgba(56,189,248,0.5),inset_0_0_12px_rgba(56,189,248,0.25)]'
-            : 'border border-cyan-400/50 shadow-[0_0_10px_rgba(56,189,248,0.2)]',
-          isClicking ? 'bg-cyan-400/30 border-cyan-300 scale-90' : ''
+            ? 'cursor-ring-hover border-2'
+            : 'border',
+          isClicking ? 'cursor-ring-clicking scale-90' : ''
         ]"
       ></div>
 
@@ -222,16 +222,16 @@ onBeforeUnmount(() => {
         class="absolute inset-[-4px] pointer-events-none animate-spin-slow transition-opacity duration-300"
       >
         <!-- 4 Corner Tech Focus Ticks -->
-        <div class="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-cyan-300"></div>
-        <div class="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-cyan-300"></div>
-        <div class="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-cyan-300"></div>
-        <div class="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-cyan-300"></div>
+        <div class="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-primary/70"></div>
+        <div class="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-primary/70"></div>
+        <div class="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-primary/70"></div>
+        <div class="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-primary/70"></div>
       </div>
 
       <!-- Central Dynamic Ping on Hover -->
       <div
         v-if="isHovering"
-        class="w-2 h-2 rounded-full bg-cyan-300 animate-ping opacity-75"
+        class="w-2 h-2 rounded-full bg-primary animate-ping opacity-50"
       ></div>
 
       <!-- Subtle Trailing Orbit Points for Default State -->
@@ -239,14 +239,34 @@ onBeforeUnmount(() => {
         v-else
         class="absolute inset-0 flex items-center justify-between px-0.5 opacity-40"
       >
-        <div class="w-0.5 h-0.5 rounded-full bg-cyan-300"></div>
-        <div class="w-0.5 h-0.5 rounded-full bg-cyan-300"></div>
+        <div class="w-0.5 h-0.5 rounded-full bg-secondary"></div>
+        <div class="w-0.5 h-0.5 rounded-full bg-secondary"></div>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+.cursor-dot {
+  box-shadow: 0 0 8px color-mix(in srgb, var(--color-primary) 25%, transparent);
+}
+
+.cursor-ring {
+  border-color: color-mix(in srgb, var(--color-secondary) 60%, transparent);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--color-secondary) 12%, transparent);
+}
+
+.cursor-ring-hover {
+  border-color: var(--color-primary);
+  background-color: color-mix(in srgb, var(--color-primary) 8%, transparent);
+  box-shadow: 0 0 16px color-mix(in srgb, var(--color-primary) 20%, transparent), inset 0 0 8px color-mix(in srgb, var(--color-primary) 8%, transparent);
+}
+
+.cursor-ring-clicking {
+  border-color: var(--color-primary);
+  background-color: color-mix(in srgb, var(--color-primary) 15%, transparent);
+}
+
 @keyframes spinSlow {
   from {
     transform: rotate(0deg);

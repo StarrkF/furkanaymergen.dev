@@ -17,7 +17,7 @@ export function useCopyEmail(particleCount: number, spread: number, y: number) {
         particleCount,
         spread,
         origin: { y },
-        colors: ['#38bdf8', '#818cf8', '#34d399', '#f472b6', '#fbbf24'],
+        colors: ['#71717a', '#a1a1aa', '#d4d4d8', '#94a3b8'],
         disableForReducedMotion: true
       })
     } catch {

@@ -6,6 +6,14 @@
             "en": "English"
         },
         "theme": "Theme",
+        "theme_options": {
+            "dark": "Dark",
+            "light": "Light"
+        },
+        "theme_switch": {
+            "to_dark": "Switch to dark theme",
+            "to_light": "Switch to light theme"
+        },
         "menu": [
             {
                 "href": "#about",
@@ -29,9 +37,8 @@
         "badge": "Software Engineering & Modern Architecture",
         "greeting": "Hello world, I am",
         "title": [
-            "Furkan Aymergen",
             "Computer Engineer",
-            "Fullstack Architect & Developer",
+            "Fullstack Developer",
             "Backend & Cloud Specialist"
         ],
         "text": "Computer Engineer specialized in designing modern web architectures, scalable backend systems, and responsive interfaces.",

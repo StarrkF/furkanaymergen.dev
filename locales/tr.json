@@ -6,6 +6,14 @@
             "en": "İngilizce"
         },
         "theme": "Tema",
+        "theme_options": {
+            "dark": "Koyu",
+            "light": "Açık"
+        },
+        "theme_switch": {
+            "to_dark": "Koyu temaya geç",
+            "to_light": "Açık temaya geç"
+        },
         "menu": [
             {
                 "href": "#about",
@@ -29,9 +37,8 @@
         "badge": "Yazılım Mühendisliği & Modern Web Mimarisi",
         "greeting": "Merhaba, ben",
         "title": [
-            "Furkan Aymergen",
             "Bilgisayar Mühendisi",
-            "Fullstack Mimar & Geliştirici",
+            "Fullstack Geliştirici",
             "Backend & Bulut Uzmanı"
         ],
         "text": "Modern web mimarileri, ölçeklenebilir backend sistemleri ve kullanıcı odaklı reaktif arayüzler geliştiren Bilgisayar Mühendisi.",

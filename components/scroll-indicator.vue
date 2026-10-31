@@ -76,19 +76,19 @@ onBeforeUnmount(() => {
     aria-label="Page Navigation & Scroll Tracker"
   >
     <!-- Live Digital Percentage Meter -->
-    <div class="px-2 py-1 rounded-lg glass-panel border border-cyan-400/30 text-[10px] font-mono font-bold text-cyan-400 shadow-[0_0_12px_rgba(56,189,248,0.25)] flex items-center gap-1 backdrop-blur-md">
-      <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+    <div class="px-2 py-1 rounded-lg glass-panel border border-base-content/10 text-[10px] font-mono font-bold text-base-content/70 shadow-sm flex items-center gap-1 backdrop-blur-md">
+      <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
       <span>{{ String(scrollProgress).padStart(2, '0') }}%</span>
     </div>
 
     <!-- Vertical Futuristic Scroll Rail -->
-    <div class="relative py-3 px-1.5 rounded-full glass-panel border border-base-content/10 shadow-2xl flex flex-col items-center gap-4.5 backdrop-blur-xl">
+    <div class="relative py-3 px-1.5 rounded-full glass-panel border border-base-content/10 shadow-md flex flex-col items-center gap-4.5 backdrop-blur-xl">
       
       <!-- Background Track Line -->
       <div class="absolute top-4 bottom-4 w-[2px] bg-base-content/10 rounded-full left-1/2 -translate-x-1/2 overflow-hidden pointer-events-none">
         <!-- Dynamic Gradient Progress Fill -->
         <div
-          class="w-full bg-gradient-to-b from-cyan-400 via-sky-400 to-purple-500 rounded-full transition-all duration-150 shadow-[0_0_8px_#38bdf8]"
+          class="w-full bg-primary/60 rounded-full transition-all duration-150"
           :style="{ height: `${scrollProgress}%` }"
         ></div>
       </div>
@@ -107,24 +107,24 @@ onBeforeUnmount(() => {
           class="relative w-2.5 h-2.5 rounded-full transition-all duration-300 block"
           :class="[
             activeSection === section.id
-              ? 'scale-135 bg-cyan-400 shadow-[0_0_12px_#38bdf8,0_0_20px_#06b6d4]'
-              : 'bg-base-content/30 group-hover:bg-cyan-300 group-hover:scale-125'
+              ? 'scale-135 bg-primary shadow-sm'
+              : 'bg-base-content/30 group-hover:bg-primary group-hover:scale-125'
           ]"
         >
           <!-- Active Pulse Beacon Ring -->
           <span
             v-if="activeSection === section.id"
-            class="absolute -inset-1 rounded-full bg-cyan-400/40 animate-ping"
+            class="absolute -inset-1 rounded-full bg-primary/20 animate-ping"
           ></span>
         </span>
 
         <!-- Holographic HUD Tooltip (Flyout to left) -->
         <div
-          class="absolute right-full mr-3.5 px-3 py-1.5 rounded-xl glass-panel border border-cyan-400/40 text-xs font-mono font-semibold whitespace-nowrap shadow-xl opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 pointer-events-none flex items-center gap-2 backdrop-blur-xl"
+          class="absolute right-full mr-3.5 px-3 py-1.5 rounded-xl glass-panel border border-base-content/10 text-xs font-mono font-semibold whitespace-nowrap shadow-md opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 pointer-events-none flex items-center gap-2 backdrop-blur-xl"
         >
-          <span class="text-[10px] text-cyan-400 font-bold">{{ section.num }}</span>
+          <span class="text-[10px] text-base-content/70 font-bold">{{ section.num }}</span>
           <span class="text-base-content text-xs">{{ section.name }}</span>
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400" v-if="activeSection === section.id"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-primary" v-if="activeSection === section.id"></span>
         </div>
       </button>
 
@@ -134,7 +134,7 @@ onBeforeUnmount(() => {
     <button
       type="button"
       @click="scrollToTop"
-      class="w-7 h-7 rounded-full glass-panel border border-base-content/15 text-base-content/60 hover:text-cyan-400 hover:border-cyan-400/50 hover:bg-cyan-500/10 flex items-center justify-center transition-all duration-300 cursor-pointer shadow-md group hover:scale-110 active:scale-90"
+      class="w-7 h-7 rounded-full glass-panel border border-base-content/15 text-base-content/60 hover:text-primary hover:border-primary/30 hover:bg-primary/10 flex items-center justify-center transition-all duration-300 cursor-pointer shadow-sm group hover:scale-110 active:scale-90"
       aria-label="Scroll to Top"
       title="Scroll to Top"
     >

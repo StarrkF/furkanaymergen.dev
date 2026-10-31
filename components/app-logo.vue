@@ -54,18 +54,17 @@ const titleSizes = computed(() => {
   >
     <!-- Geometric Animated Emblem -->
     <div
-      class="relative flex items-center justify-center rounded-xl sm:rounded-2xl shrink-0 transition-all duration-500 overflow-hidden"
+      class="logo-emblem relative flex items-center justify-center rounded-xl sm:rounded-2xl shrink-0 transition-all duration-500 overflow-hidden"
       :class="[
         iconSizes,
-        interactive ? 'group-hover:scale-105 group-hover:shadow-[0_0_25px_rgba(6,182,212,0.5)]' : ''
+        interactive ? 'logo-emblem-interactive group-hover:scale-105' : ''
       ]"
-      style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(168, 85, 247, 0.15)); border: 1px solid rgba(56, 189, 248, 0.35);"
     >
       <!-- Background Ambient Glow & Light Ray -->
-      <div class="absolute inset-0 bg-radial from-cyan-400/20 via-transparent to-transparent opacity-70 group-hover:opacity-100 transition-opacity"></div>
+      <div class="absolute inset-0 bg-radial from-primary/10 via-transparent to-transparent opacity-70 group-hover:opacity-100 transition-opacity"></div>
       
       <!-- Rotating Holographic Border Aura -->
-      <div class="logo-aura-spin absolute -inset-2 bg-conic from-cyan-500 via-purple-500 to-cyan-500 opacity-30 group-hover:opacity-75 blur-xs transition-opacity duration-500 pointer-events-none"></div>
+      <div class="logo-aura-spin absolute -inset-2 bg-conic from-primary via-secondary to-primary opacity-20 group-hover:opacity-40 blur-xs transition-opacity duration-500 pointer-events-none"></div>
 
       <!-- Inner Glass Base -->
       <div class="absolute inset-[1.5px] rounded-[10px] sm:rounded-[14px] bg-base-100/85 backdrop-blur-md z-1"></div>
@@ -78,18 +77,18 @@ const titleSizes = computed(() => {
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
-          <!-- Cyber Cyan Gradient -->
+          <!-- Primary Theme Gradient -->
           <linearGradient id="mfaGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#38bdf8" />
-            <stop offset="50%" stop-color="#06b6d4" />
-            <stop offset="100%" stop-color="#818cf8" />
+            <stop offset="0%" stop-color="var(--color-primary)" />
+            <stop offset="50%" stop-color="color-mix(in srgb, var(--color-primary) 75%, var(--color-secondary))" />
+            <stop offset="100%" stop-color="var(--color-secondary)" />
           </linearGradient>
 
-          <!-- Neon Violet Gradient -->
+          <!-- Secondary Theme Gradient -->
           <linearGradient id="mfaGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#c084fc" />
-            <stop offset="50%" stop-color="#a855f7" />
-            <stop offset="100%" stop-color="#38bdf8" />
+            <stop offset="0%" stop-color="var(--color-secondary)" />
+            <stop offset="50%" stop-color="color-mix(in srgb, var(--color-secondary) 75%, var(--color-primary))" />
+            <stop offset="100%" stop-color="var(--color-primary)" />
           </linearGradient>
 
           <!-- Laser Glow Filter -->
@@ -115,12 +114,12 @@ const titleSizes = computed(() => {
         />
 
         <!-- Corner HUD Accents -->
-        <circle cx="50" cy="6" r="2.5" fill="#38bdf8" filter="url(#laserGlow)" />
-        <circle cx="88" cy="27.5" r="2" fill="#818cf8" />
-        <circle cx="88" cy="72.5" r="2" fill="#c084fc" />
-        <circle cx="50" cy="94" r="2.5" fill="#a855f7" filter="url(#laserGlow)" />
-        <circle cx="12" cy="72.5" r="2" fill="#38bdf8" />
-        <circle cx="12" cy="27.5" r="2" fill="#06b6d4" />
+        <circle cx="50" cy="6" r="2.5" fill="var(--color-primary)" filter="url(#laserGlow)" />
+        <circle cx="88" cy="27.5" r="2" fill="var(--color-secondary)" />
+        <circle cx="88" cy="72.5" r="2" fill="var(--color-secondary)" />
+        <circle cx="50" cy="94" r="2.5" fill="var(--color-secondary)" filter="url(#laserGlow)" />
+        <circle cx="12" cy="72.5" r="2" fill="var(--color-primary)" />
+        <circle cx="12" cy="27.5" r="2" fill="var(--color-primary)" />
 
         <!-- Geometric MFA Monogram Architecture -->
         <!-- 'M' & Left Bracket Structure: 22,72 -> 32,32 -> 50,56 -> 68,32 -> 78,72 -->
@@ -161,7 +160,7 @@ const titleSizes = computed(() => {
           cx="50"
           cy="50"
           r="3"
-          fill="#38bdf8"
+          fill="var(--color-primary)"
           filter="url(#laserGlow)"
           class="logo-core-pulse"
         />
@@ -172,25 +171,25 @@ const titleSizes = computed(() => {
     <div v-if="showText" class="flex flex-col">
       <div class="flex items-center gap-1.5">
         <span
-          class="font-heading font-extrabold tracking-tight text-base-content group-hover:text-cyan-400 transition-colors"
+          class="font-heading font-extrabold tracking-tight text-base-content group-hover:text-primary transition-colors"
           :class="titleSizes"
         >
           <span class="hidden sm:inline">Furkan Aymergen</span>
           <span class="sm:hidden">Furkan A.</span>
         </span>
         <!-- MFA Monogram Badge -->
-        <span class="px-1.5 py-0.2 sm:py-0.5 rounded-md text-[9px] sm:text-[10px] font-mono font-black bg-cyan-500/15 text-cyan-400 border border-cyan-400/30 group-hover:bg-cyan-500/25 group-hover:border-cyan-400/60 transition-all duration-300 shadow-[0_0_8px_rgba(6,182,212,0.2)]">
+        <span class="logo-badge px-1.5 py-0.2 sm:py-0.5 rounded-md text-[9px] sm:text-[10px] font-mono font-black bg-primary/10 text-primary border border-primary/20 group-hover:bg-primary/15 group-hover:border-primary/35 transition-all duration-300">
           MFA
         </span>
       </div>
 
       <span
         v-if="showSubtitle"
-        class="hidden sm:flex text-[10px] font-mono text-cyan-400/90 tracking-wider items-center gap-1.5 font-medium mt-0.5"
+        class="hidden sm:flex text-[10px] font-mono text-base-content/65 tracking-wider items-center gap-1.5 font-medium mt-0.5"
       >
         <span class="relative flex h-1.5 w-1.5">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400"></span>
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-50"></span>
+          <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-secondary"></span>
         </span>
         <span>{{ $t('header.logo_subtitle') }}</span>
       </span>
@@ -199,6 +198,19 @@ const titleSizes = computed(() => {
 </template>
 
 <style scoped>
+.logo-emblem {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 10%, transparent), color-mix(in srgb, var(--color-secondary) 10%, transparent));
+  border: 1px solid color-mix(in srgb, var(--color-primary) 25%, transparent);
+}
+
+.app-logo-container:hover .logo-emblem-interactive {
+  box-shadow: 0 0 18px color-mix(in srgb, var(--color-primary) 20%, transparent);
+}
+
+.logo-badge {
+  box-shadow: 0 0 6px color-mix(in srgb, var(--color-primary) 10%, transparent);
+}
+
 @keyframes auraSpin {
   0% {
     transform: rotate(0deg);
@@ -243,11 +255,11 @@ const titleSizes = computed(() => {
 @keyframes mGlow {
   0% {
     stroke-width: 4.5px;
-    filter: drop-shadow(0 0 2px rgba(56, 189, 248, 0.4));
+    filter: drop-shadow(0 0 2px color-mix(in srgb, var(--color-primary) 25%, transparent));
   }
   100% {
     stroke-width: 5.5px;
-    filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.9));
+    filter: drop-shadow(0 0 6px color-mix(in srgb, var(--color-primary) 45%, transparent));
   }
 }
 

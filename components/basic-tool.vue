@@ -14,27 +14,26 @@ const techCategories = computed(() => [
 interface TechItem {
   name: string
   category: 'backend' | 'frontend' | 'devops'
-  color: string
   level?: string
 }
 
 const techItems: TechItem[] = [
-  { name: 'Laravel', category: 'backend', color: '#ff2d20' },
-  { name: 'Vue.js', category: 'frontend', color: '#42b883' },
-  { name: 'Nuxt 3', category: 'frontend', color: '#00dc82' },
-  { name: 'Spring Boot', category: 'backend', color: '#6db33f' },
-  { name: 'Java', category: 'backend', color: '#f89820' },
-  { name: 'PHP', category: 'backend', color: '#777bb4' },
-  { name: 'TypeScript', category: 'frontend', color: '#3178c6' },
-  { name: 'Tailwind CSS', category: 'frontend', color: '#38bdf8' },
-  { name: 'Docker', category: 'devops', color: '#2496ed' },
-  { name: 'PostgreSQL', category: 'backend', color: '#336791' },
-  { name: 'Redis', category: 'backend', color: '#dc382d' },
-  { name: 'AWS', category: 'devops', color: '#ff9900' },
-  { name: 'Git', category: 'devops', color: '#f05032' },
-  { name: 'Vaadin', category: 'backend', color: '#00b4f0' },
-  { name: 'Bootstrap', category: 'frontend', color: '#7952b3' },
-  { name: 'Linux', category: 'devops', color: '#fcc624' }
+  { name: 'Laravel', category: 'backend' },
+  { name: 'Vue.js', category: 'frontend' },
+  { name: 'Nuxt 3', category: 'frontend' },
+  { name: 'Spring Boot', category: 'backend' },
+  { name: 'Java', category: 'backend' },
+  { name: 'PHP', category: 'backend' },
+  { name: 'TypeScript', category: 'frontend' },
+  { name: 'Tailwind CSS', category: 'frontend' },
+  { name: 'Docker', category: 'devops' },
+  { name: 'PostgreSQL', category: 'backend' },
+  { name: 'Redis', category: 'backend' },
+  { name: 'AWS', category: 'devops' },
+  { name: 'Git', category: 'devops' },
+  { name: 'Vaadin', category: 'backend' },
+  { name: 'Bootstrap', category: 'frontend' },
+  { name: 'Linux', category: 'devops' }
 ]
 
 const filteredItems = computed(() => {
@@ -47,7 +46,7 @@ const filteredItems = computed(() => {
   <section class="py-14 sm:py-20 relative overflow-hidden bg-base-200/30 border-y border-base-content/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 mb-8 sm:mb-10 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
       <div class="flex items-center gap-2.5">
-        <div class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping"></div>
+        <div class="w-2.5 h-2.5 rounded-full bg-primary animate-ping"></div>
         <span class="font-mono text-xs sm:text-sm uppercase tracking-widest text-base-content/70">
           {{ $t('tool.ecosystem_badge') }}
         </span>
@@ -63,7 +62,7 @@ const filteredItems = computed(() => {
           class="px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-xl text-xs font-mono transition-all duration-300 cursor-pointer"
           :class="[
             selectedCategory === cat.id
-              ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-400/50 shadow-sm font-bold'
+              ? 'bg-primary text-primary-content hover:bg-primary/90 border border-primary shadow-sm font-bold'
               : 'text-base-content/60 hover:text-base-content hover:bg-base-content/5'
           ]"
         >
@@ -78,11 +77,10 @@ const filteredItems = computed(() => {
         <div
           v-for="(tech, idx) in [...filteredItems, ...filteredItems, ...filteredItems]"
           :key="'m1-' + idx"
-          class="flex items-center gap-2.5 sm:gap-3 px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl glass-card text-base-content hover:border-cyan-400/50 transition-all duration-300 group cursor-default shrink-0 shadow-md"
+          class="flex items-center gap-2.5 sm:gap-3 px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl glass-card text-base-content hover:border-base-content/20 transition-all duration-300 group cursor-default shrink-0 shadow-sm"
         >
           <div
-            class="w-3 h-3 rounded-full shrink-0 transition-transform group-hover:scale-125 shadow-sm"
-            :style="{ backgroundColor: tech.color, boxShadow: `0 0 10px ${tech.color}` }"
+            class="w-3 h-3 rounded-full shrink-0 transition-transform group-hover:scale-125 shadow-sm bg-base-content/40"
           ></div>
           <span class="font-heading font-semibold text-xs sm:text-sm text-base-content whitespace-nowrap">
             {{ tech.name }}
@@ -100,11 +98,10 @@ const filteredItems = computed(() => {
         <div
           v-for="(tech, idx) in [...filteredItems.slice().reverse(), ...filteredItems.slice().reverse(), ...filteredItems.slice().reverse()]"
           :key="'m2-' + idx"
-          class="flex items-center gap-2.5 sm:gap-3 px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl glass-card text-base-content hover:border-purple-400/50 transition-all duration-300 group cursor-default shrink-0 shadow-md"
+          class="flex items-center gap-2.5 sm:gap-3 px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl glass-card text-base-content hover:border-base-content/20 transition-all duration-300 group cursor-default shrink-0 shadow-sm"
         >
           <div
-            class="w-3 h-3 rounded-full shrink-0 transition-transform group-hover:scale-125 shadow-sm"
-            :style="{ backgroundColor: tech.color, boxShadow: `0 0 10px ${tech.color}` }"
+            class="w-3 h-3 rounded-full shrink-0 transition-transform group-hover:scale-125 shadow-sm bg-base-content/40"
           ></div>
           <span class="font-heading font-semibold text-xs sm:text-sm text-base-content whitespace-nowrap">
             {{ tech.name }}

@@ -17,7 +17,7 @@ const cvHref = computed(() => {
 <template>
   <div>
     <!-- Floating Quick Dock (Desktop Screen Edge) -->
-    <aside class="hidden md:flex fixed top-1/2 -translate-y-1/2 right-4 z-40 flex-col items-center gap-3 p-2 rounded-2xl glass-panel shadow-2xl border-base-content/15">
+    <aside class="hidden md:flex fixed top-1/2 -translate-y-1/2 right-4 z-40 flex-col items-center gap-3 p-2 rounded-2xl glass-panel shadow-md border-base-content/15">
       <!-- GitHub -->
       <SocialIcon href="https://github.com/StarrkF" title="GitHub">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -79,11 +79,11 @@ const cvHref = computed(() => {
             :key="item.href"
             :href="item.href"
             v-smooth-scroll
-            class="text-base-content/70 hover:text-cyan-400 transition-colors"
+            class="text-base-content/70 hover:text-primary transition-colors"
           >
             {{ item.name }}
           </a>
-          <a href="#contact" v-smooth-scroll class="text-base-content/70 hover:text-cyan-400 transition-colors">
+          <a href="#contact" v-smooth-scroll class="text-base-content/70 hover:text-primary transition-colors">
             {{ $t('footer.contact') }}
           </a>
         </nav>
@@ -93,7 +93,7 @@ const cvHref = computed(() => {
           <button
             type="button"
             @click="scrollTop"
-            class="flex items-center gap-2 px-4 py-2 rounded-full glass-panel text-base-content/80 hover:text-cyan-400 text-xs font-mono transition-all duration-300 cursor-pointer shadow-xs hover:scale-105 group hover:border-cyan-400/50"
+            class="flex items-center gap-2 px-4 py-2 rounded-full glass-panel text-base-content/80 hover:text-primary text-xs font-mono transition-all duration-300 cursor-pointer shadow-xs hover:scale-105 group hover:border-primary/30"
             :title="$t('footer.back_to_top')"
           >
             <UiIcon name="arrow-up" class="w-4 h-4 group-hover:-translate-y-1 transition-transform" />

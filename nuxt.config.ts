@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  compatibilityDate: '2026-11-01',
   devtools: { enabled: true },
   components: true,
   app: {
@@ -18,6 +19,11 @@ export default defineNuxtConfig({
     '/fonts/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
     '/images/**': { headers: { 'cache-control': 'public, max-age=604800' } }
   },
+  vite: {
+    optimizeDeps: {
+      include: ['canvas-confetti', 'swiper/vue', 'swiper/modules']
+    },
+  },
   postcss: {
     plugins: {
       '@tailwindcss/postcss': {},
@@ -31,8 +37,8 @@ export default defineNuxtConfig({
     strategy: 'prefix_except_default',
     defaultLocale: 'tr',
     locales: [
-      { code: 'tr', iso: 'tr-TR', name: 'Türkçe' },
-      { code: 'en', iso: 'en-US', name: 'English' }
+      { code: 'tr', language: 'tr-TR', name: 'Türkçe' },
+      { code: 'en', language: 'en-US', name: 'English' }
     ],
     detectBrowserLanguage: false
   },
@@ -44,7 +50,8 @@ export default defineNuxtConfig({
     }
   },
   colorMode: {
-    preference: 'night', // default theme
+    preference: 'dark', // default theme
+    fallback: 'dark',
     dataValue: 'theme', // activate data-theme in <html> tag
     classSuffix: '',
   },

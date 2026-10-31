@@ -95,7 +95,7 @@ const breakpoints = {
       <div data-aos="fade-up" class="flex flex-col sm:flex-row items-center justify-between gap-4 mt-8 mb-10 w-full">
         <!-- Vision & Principle Info Pill -->
         <div class="flex items-center gap-2 px-4 py-2 rounded-2xl glass-panel border border-base-content/10 text-xs font-mono font-medium text-base-content/75 shadow-xs">
-          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#38bdf8]"></span>
+          <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
           <span>{{ locale === 'tr' ? 'Mimari Standartlar & Mühendislik Vizyonu' : 'Architectural Standards & Engineering Vision' }}</span>
         </div>
 
@@ -103,9 +103,9 @@ const breakpoints = {
         <div class="flex items-center gap-3 self-end sm:self-auto">
           <!-- Slide Counter Badge -->
           <div class="px-3.5 py-1.5 rounded-xl glass-panel flex items-center gap-2 border border-base-content/10 text-xs font-mono font-bold text-base-content/70 shadow-xs">
-            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+            <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
             <span>
-              <span class="text-cyan-400">{{ String(activeSlideIndex + 1).padStart(2, '0') }}</span>
+              <span class="text-base-content">{{ String(activeSlideIndex + 1).padStart(2, '0') }}</span>
               <span class="mx-1 text-base-content/30">/</span>
               <span>{{ String(goals.length).padStart(2, '0') }}</span>
             </span>
@@ -116,7 +116,7 @@ const breakpoints = {
             <button
               type="button"
               @click="slidePrev"
-              class="w-8 h-8 rounded-xl hover:bg-cyan-500/15 hover:border-cyan-400/50 text-base-content/80 hover:text-cyan-400 flex items-center justify-center transition-all duration-300 cursor-pointer hover:scale-105 active:scale-95"
+              class="w-8 h-8 rounded-xl hover:bg-primary/10 hover:border-primary/30 text-base-content/80 hover:text-primary flex items-center justify-center transition-all duration-300 cursor-pointer hover:scale-105 active:scale-95"
               aria-label="Previous Slide"
             >
               <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -126,7 +126,7 @@ const breakpoints = {
             <button
               type="button"
               @click="slideNext"
-              class="w-8 h-8 rounded-xl hover:bg-cyan-500/15 hover:border-cyan-400/50 text-base-content/80 hover:text-cyan-400 flex items-center justify-center transition-all duration-300 cursor-pointer hover:scale-105 active:scale-95"
+              class="w-8 h-8 rounded-xl hover:bg-primary/10 hover:border-primary/30 text-base-content/80 hover:text-primary flex items-center justify-center transition-all duration-300 cursor-pointer hover:scale-105 active:scale-95"
               aria-label="Next Slide"
             >
               <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -160,18 +160,18 @@ const breakpoints = {
             class="!h-auto pb-14 flex flex-col"
           >
             <!-- Goal Card Container -->
-            <div class="flex-1 w-full rounded-3xl glass-card overflow-hidden flex flex-col justify-between group relative border border-base-content/10 hover:border-cyan-400/50 transition-all duration-500 hover:-translate-y-2 shadow-xl select-none">
+            <div class="flex-1 w-full rounded-3xl glass-card overflow-hidden flex flex-col justify-between group relative border border-base-content/10 hover:border-base-content/20 transition-all duration-500 hover:-translate-y-2 shadow-md select-none">
               
               <!-- Ambient Glow & Top Glowing Accent Line -->
-              <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan-400/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div class="absolute -top-16 -right-16 w-36 h-36 bg-cyan-400/10 rounded-full blur-2xl group-hover:bg-cyan-400/20 transition-all duration-500 pointer-events-none"></div>
+              <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div class="absolute -top-16 -right-16 w-36 h-36 bg-base-content/5 rounded-full blur-2xl group-hover:bg-base-content/10 transition-all duration-500 pointer-events-none"></div>
 
               <!-- Card Header Bar -->
               <div class="px-6 py-4 bg-base-200/80 border-b border-base-content/10 flex items-center justify-between gap-3 shrink-0 backdrop-blur-xl">
                 <!-- Vision Tag -->
                 <div class="flex items-center gap-2">
-                  <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#38bdf8]"></span>
-                  <span class="text-[11px] font-mono font-bold tracking-wider text-cyan-400 uppercase">
+                  <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                  <span class="text-[11px] font-mono font-bold tracking-wider text-base-content/70 uppercase">
                     {{ getPillars(index).tag }}
                   </span>
                 </div>
@@ -189,7 +189,7 @@ const breakpoints = {
                   <!-- Large Glowing Icon Box & Title -->
                   <div class="flex items-start gap-4">
                     <div
-                      class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500/20 via-sky-500/10 to-purple-500/20 border border-cyan-400/30 p-3 flex items-center justify-center text-cyan-400 group-hover:text-cyan-300 group-hover:scale-110 group-hover:border-cyan-400 group-hover:shadow-[0_0_20px_rgba(56,189,248,0.35)] transition-all duration-400 shrink-0 shadow-md backdrop-blur-md"
+                      class="w-14 h-14 rounded-2xl bg-base-200 border border-base-content/10 p-3 flex items-center justify-center text-base-content/70 group-hover:text-primary group-hover:scale-110 group-hover:border-primary/30 group-hover:shadow-md transition-all duration-400 shrink-0 shadow-sm backdrop-blur-md"
                       v-html="item.icon"
                     ></div>
 
@@ -197,7 +197,7 @@ const breakpoints = {
                       <div class="text-[10px] font-mono uppercase tracking-widest text-base-content/50 font-semibold mb-1">
                         {{ locale === 'tr' ? 'Mimari İlke' : 'Core Principle' }}
                       </div>
-                      <h3 class="font-heading text-xl sm:text-2xl font-black text-base-content group-hover:text-cyan-400 transition-colors leading-snug">
+                      <h3 class="font-heading text-xl sm:text-2xl font-black text-base-content transition-colors leading-snug">
                         {{ item.title }}
                       </h3>
                     </div>
@@ -219,9 +219,9 @@ const breakpoints = {
                     <span
                       v-for="(chip, cIdx) in getPillars(index).chips"
                       :key="cIdx"
-                      class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-base-200/90 text-base-content/90 border border-base-content/10 text-xs font-mono group-hover:border-cyan-400/30 transition-colors"
+                      class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-base-200/90 text-base-content/90 border border-base-content/10 text-xs font-mono group-hover:border-base-content/20 transition-colors"
                     >
-                      <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0"></span>
+                      <span class="w-1.5 h-1.5 rounded-full bg-base-content/40 shrink-0"></span>
                       <span>{{ chip }}</span>
                     </span>
                   </div>
@@ -232,10 +232,10 @@ const breakpoints = {
               <!-- Card Bottom Ribbon: Status & Interactive Metric -->
               <div class="px-6 py-3.5 bg-base-200/60 border-t border-base-content/10 flex items-center justify-between text-xs font-mono text-base-content/60 shrink-0">
                 <div class="flex items-center gap-2">
-                  <span class="w-2 h-2 rounded-full bg-emerald-400 inline-block shadow-[0_0_6px_#10b981]"></span>
-                  <span class="text-[11px] font-semibold text-emerald-400/90">{{ getPillars(index).status }}</span>
+                  <span class="w-2 h-2 rounded-full bg-primary inline-block"></span>
+                  <span class="text-[11px] font-semibold text-base-content/70">{{ getPillars(index).status }}</span>
                 </div>
-                <div class="flex items-center gap-1 text-[11px] font-bold text-cyan-400 group-hover:translate-x-1 transition-transform">
+                <div class="flex items-center gap-1 text-[11px] font-bold text-base-content/70 group-hover:translate-x-1 transition-transform">
                   <span>{{ $t('goal.target_label') }} 100%</span>
                   <span>→</span>
                 </div>

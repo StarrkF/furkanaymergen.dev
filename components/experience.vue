@@ -31,20 +31,20 @@ watch(locale, loadAndReverseData, { immediate: true })
 
       <!-- Glassmorphic Tab Switcher -->
       <div data-aos="fade-up" class="flex justify-center mt-10 mb-14 sm:mb-16">
-        <div class="p-1.5 rounded-full glass-panel flex items-center gap-2 shadow-xl">
+        <div class="p-1.5 rounded-full glass-panel flex items-center gap-2 shadow-sm">
           <button
             type="button"
             @click="activeTab = 1"
             class="flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-full font-heading font-semibold text-xs sm:text-sm transition-all duration-300 cursor-pointer"
             :class="[
               activeTab === 1
-                ? 'bg-linear-to-r from-cyan-500 to-blue-600 text-slate-950 shadow-[0_0_20px_rgba(56,189,248,0.4)] font-bold'
+                ? 'bg-primary text-primary-content hover:bg-primary/90 shadow-sm font-bold'
                 : 'text-base-content/70 hover:text-base-content hover:bg-base-content/10'
             ]"
           >
             <span><UiIcon name="briefcase" class="w-[1em] h-[1em] inline-block align-middle" /></span>
             <span>{{ $t('experience.work_life_tab') }}</span>
-            <span class="text-[10px] font-mono px-1.5 py-0.5 rounded-md" :class="activeTab === 1 ? 'bg-black/20 text-slate-950' : 'bg-base-content/10 text-base-content/60'">
+            <span class="text-[10px] font-mono px-1.5 py-0.5 rounded-md" :class="activeTab === 1 ? 'bg-primary-content/15 text-primary-content' : 'bg-base-content/10 text-base-content/60'">
               {{ workLifeData.length }}
             </span>
           </button>
@@ -55,13 +55,13 @@ watch(locale, loadAndReverseData, { immediate: true })
             class="flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-full font-heading font-semibold text-xs sm:text-sm transition-all duration-300 cursor-pointer"
             :class="[
               activeTab === 2
-                ? 'bg-linear-to-r from-purple-500 to-pink-500 text-white shadow-[0_0_20px_rgba(168,85,247,0.4)] font-bold'
+                ? 'bg-primary text-primary-content hover:bg-primary/90 shadow-sm font-bold'
                 : 'text-base-content/70 hover:text-base-content hover:bg-base-content/10'
             ]"
           >
             <span><UiIcon name="graduation" class="w-[1em] h-[1em] inline-block align-middle" /></span>
             <span>{{ $t('experience.education_tab') }}</span>
-            <span class="text-[10px] font-mono px-1.5 py-0.5 rounded-md" :class="activeTab === 2 ? 'bg-black/20 text-white' : 'bg-base-content/10 text-base-content/60'">
+            <span class="text-[10px] font-mono px-1.5 py-0.5 rounded-md" :class="activeTab === 2 ? 'bg-primary-content/15 text-primary-content' : 'bg-base-content/10 text-base-content/60'">
               {{ educationData.length }}
             </span>
           </button>

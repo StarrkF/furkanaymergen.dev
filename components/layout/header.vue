@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, watch, onMounted, onBeforeUnmount } from 'vue'
+import { normalizeThemePreference } from '~/utils/theme.mjs'
 
 const colorMode = useColorMode()
 const { locale } = useI18n()
@@ -13,22 +14,18 @@ const handleScroll = () => {
 }
 
 const setTheme = (theme: string) => {
-  colorMode.preference = theme
+  colorMode.preference = normalizeThemePreference(theme)
 }
+
+watch(() => [colorMode.preference, colorMode.unknown], () => {
+  if (colorMode.unknown) return
+  const preference = normalizeThemePreference(colorMode.preference, colorMode.value)
+  if (colorMode.preference !== preference) colorMode.preference = preference
+}, { immediate: true })
 
 const scrollTop = () => {
   window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
 }
-
-const themes = [
-  { name: 'night', label: 'Night (Dark)', color: '#0f172a' },
-  { name: 'dracula', label: 'Dracula', color: '#282a36' },
-  { name: 'synthwave', label: 'Synthwave', color: '#2d1b69' },
-  { name: 'emerald', label: 'Emerald', color: '#064e3b' },
-  { name: 'halloween', label: 'Halloween', color: '#212121' },
-  { name: 'corporate', label: 'Corporate (Light)', color: '#f8fafc' },
-  { name: 'cupcake', label: 'Cupcake (Light)', color: '#faf7f5' }
-]
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll, { passive: true })
@@ -72,7 +69,7 @@ onBeforeUnmount(() => {
           class="relative px-4 py-1.5 text-sm font-heading font-medium text-base-content/75 hover:text-base-content transition-colors duration-200 rounded-full hover:bg-base-content/10 group"
         >
           {{ item.name }}
-          <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-1/2 rounded-full shadow-[0_0_8px_#38bdf8]"></span>
+          <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary/70 transition-all duration-300 group-hover:w-1/2 rounded-full"></span>
         </a>
       </nav>
 
@@ -82,7 +79,7 @@ onBeforeUnmount(() => {
         <NuxtLink
           :to="switchLocalePath(locale === 'tr' ? 'en' : 'tr')"
           :prefetch="false"
-          class="flex items-center gap-2 px-2.5 sm:px-3 py-1.5 rounded-full glass-panel text-xs font-mono font-semibold text-base-content/90 transition-all duration-300 cursor-pointer shadow-xs hover:border-cyan-400/50 hover:text-cyan-400 group"
+          class="flex items-center gap-2 px-2.5 sm:px-3 py-1.5 rounded-full glass-panel text-xs font-mono font-semibold text-base-content/90 transition-all duration-300 cursor-pointer shadow-xs hover:border-primary/40 hover:text-primary group"
           :title="locale === 'tr' ? 'Switch to English' : 'Türkçe\'ye Geç'"
         >
           <span class="relative flex w-4 h-4 rounded-full overflow-hidden border border-base-content/25 shadow-xs shrink-0 group-hover:scale-110 transition-transform duration-300">
@@ -97,54 +94,49 @@ onBeforeUnmount(() => {
           <span class="uppercase tracking-wider font-bold text-xs">{{ locale }}</span>
         </NuxtLink>
 
-        <!-- Theme Switcher Dropdown -->
-        <div class="dropdown dropdown-end">
-          <button
-            type="button"
-            tabindex="0"
-            class="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full glass-panel text-cyan-400 hover:text-cyan-300 transition-all duration-300 cursor-pointer shadow-xs hover:border-cyan-400/50"
-            :title="$t('app.theme') || 'Theme'"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="4"/>
-              <path d="M12 2v2"/>
-              <path d="M12 20v2"/>
-              <path d="m4.93 4.93 1.41 1.41"/>
-              <path d="m17.66 17.66 1.41 1.41"/>
-              <path d="M2 12h2"/>
-              <path d="M20 12h2"/>
-              <path d="m6.34 17.66-1.41 1.41"/>
-              <path d="m19.07 4.93-1.41 1.41"/>
-            </svg>
-          </button>
-          <ul
-            tabindex="0"
-            class="dropdown-content z-50 menu p-2 mt-3 shadow-2xl bg-base-200/95 backdrop-blur-2xl rounded-2xl w-52 border border-base-content/15 text-base-content space-y-1 font-sans text-xs"
-          >
-            <li v-for="tItem of themes" :key="tItem.name">
-              <button
-                type="button"
-                class="flex items-center justify-between w-full px-3 py-2 rounded-xl transition-all hover:bg-cyan-500/15 hover:text-cyan-400"
-                :class="{ 'bg-cyan-500/20 text-cyan-400 font-bold border border-cyan-500/30': colorMode.preference === tItem.name }"
-                @click="setTheme(tItem.name)"
-              >
-                <span>{{ tItem.label }}</span>
-                <span class="w-3.5 h-3.5 rounded-full border border-base-content/20 shadow-xs" :style="{ backgroundColor: tItem.color }"></span>
-              </button>
-            </li>
-          </ul>
-        </div>
+        <!-- Theme Toggle Button -->
+        <span class="flex shrink-0 w-8 h-8 sm:w-9 sm:h-9">
+          <ColorScheme>
+            <template #placeholder>
+              <span aria-hidden="true" class="block w-full h-full rounded-full glass-panel"></span>
+            </template>
+            <button
+              type="button"
+              class="flex items-center justify-center w-full h-full rounded-full glass-panel text-base-content/80 hover:text-primary transition-colors duration-200 cursor-pointer shadow-xs hover:border-primary/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              :title="$t(colorMode.value === 'dark' ? 'app.theme_switch.to_light' : 'app.theme_switch.to_dark')"
+              :aria-label="$t(colorMode.value === 'dark' ? 'app.theme_switch.to_light' : 'app.theme_switch.to_dark')"
+              @click="setTheme(colorMode.value === 'dark' ? 'light' : 'dark')"
+            >
+              <svg v-if="colorMode.value === 'dark'" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="4"/>
+                <path d="M12 2v2"/>
+                <path d="M12 20v2"/>
+                <path d="m4.93 4.93 1.41 1.41"/>
+                <path d="m17.66 17.66 1.41 1.41"/>
+                <path d="M2 12h2"/>
+                <path d="M20 12h2"/>
+                <path d="m6.34 17.66-1.41 1.41"/>
+                <path d="m19.07 4.93-1.41 1.41"/>
+              </svg>
+              <svg v-else aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/>
+              </svg>
+            </button>
+          </ColorScheme>
+        </span>
 
         <!-- Quick Contact Link Button (Desktop) -->
         <a
           href="#contact"
           v-smooth-scroll
-          class="hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-linear-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-heading font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-[0_0_20px_rgba(56,189,248,0.4)] hover:shadow-[0_0_30px_rgba(56,189,248,0.7)] hover:scale-105"
+          class="button-glass button-glass--compact hidden sm:inline-flex shrink-0 items-center font-heading font-semibold text-xs"
         >
-          <span>{{ locale === 'tr' ? 'İletişim' : 'Contact' }}</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
-          </svg>
+          <span class="button-label">{{ locale === 'tr' ? 'İletişim' : 'Contact' }}</span>
+          <span class="button-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 17 17 7M7 7h10v10"/>
+            </svg>
+          </span>
         </a>
 
         <!-- Mobile Menu Toggle Button -->
@@ -159,7 +151,7 @@ onBeforeUnmount(() => {
           <svg v-if="!mobileMenuOpen" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"/>
           </svg>
-          <svg v-else xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <svg v-else xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
           </svg>
         </button>
@@ -189,7 +181,7 @@ onBeforeUnmount(() => {
               class="flex items-center justify-between p-3 rounded-2xl text-base-content/85 hover:text-base-content hover:bg-base-content/10 font-heading font-medium text-base transition-colors"
             >
               <span>{{ item.name }}</span>
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="m9 18 6-6-6-6"/>
               </svg>
             </a>
@@ -199,9 +191,14 @@ onBeforeUnmount(() => {
               href="#contact"
               v-smooth-scroll
               @click="mobileMenuOpen = false"
-              class="flex items-center justify-center p-3 rounded-2xl bg-linear-to-r from-cyan-500 to-blue-600 text-slate-950 font-heading font-bold text-sm uppercase tracking-wider mt-2"
+              class="button-glass flex items-center font-heading font-semibold text-sm mt-2"
             >
-              {{ $t('header.contact') }}
+              <span class="button-label">{{ $t('header.contact') }}</span>
+              <span class="button-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17 17 7M7 7h10v10"/>
+                </svg>
+              </span>
             </a>
           </li>
         </ul>
@@ -215,7 +212,7 @@ onBeforeUnmount(() => {
               :prefetch="false"
               @click="mobileMenuOpen = false"
               class="flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer"
-              :class="locale === 'tr' ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 shadow-xs' : 'text-base-content/70 hover:bg-base-content/5'"
+              :class="locale === 'tr' ? 'bg-primary/10 text-primary border border-primary/30 shadow-xs' : 'text-base-content/70 hover:bg-base-content/5'"
             >
               <img src="/images/tr.png" alt="Türkçe" width="16" height="16" class="w-4 h-4 rounded-full object-cover border border-base-content/20 shrink-0" />
               <span>TR</span>
@@ -225,7 +222,7 @@ onBeforeUnmount(() => {
               :prefetch="false"
               @click="mobileMenuOpen = false"
               class="flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer"
-              :class="locale === 'en' ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 shadow-xs' : 'text-base-content/70 hover:bg-base-content/5'"
+              :class="locale === 'en' ? 'bg-primary/10 text-primary border border-primary/30 shadow-xs' : 'text-base-content/70 hover:bg-base-content/5'"
             >
               <img src="/images/en.png" alt="English" width="16" height="16" class="w-4 h-4 rounded-full object-cover border border-base-content/20 shrink-0" />
               <span>EN</span>

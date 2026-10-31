@@ -13,13 +13,13 @@
     "@nuxt/image": "^1.0.0-rc.1",
     "@nuxtjs/color-mode": "^3.3.0",
     "@nuxtjs/i18n": "^8.0.0-rc.2",
-    "@tailwindcss/postcss": "^4.1.10",
+    "@tailwindcss/postcss": "~4.1.18",
     "@types/node": "^18.17.1",
     "autoprefixer": "^10.4.14",
     "daisyui": "^5.0.43",
     "nuxt": "^3.6.5",
     "postcss": "^8.4.27",
-    "tailwindcss": "^4.1.10"
+    "tailwindcss": "~4.1.18"
   },
   "dependencies": {
     "@lucide/vue": "^1.51.0",

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 
-const colorMode = useColorMode()
 const canvasRef = ref<HTMLCanvasElement | null>(null)
 const isPaused = ref(false)
 let animationFrameId: number | null = null
@@ -14,13 +13,10 @@ interface Particle {
   radius: number
   baseAlpha: number
   alpha: number
-  color: string
 }
 
 let particles: Particle[] = []
 let mouse = { x: -1000, y: -1000, radius: 140 }
-
-const colors = ['#38bdf8', '#818cf8', '#c084fc', '#34d399', '#f472b6']
 
 const initCanvas = () => {
   const canvas = canvasRef.value
@@ -43,16 +39,14 @@ const initCanvas = () => {
     const isMobile = window.innerWidth < 768
     const count = isMobile ? 16 : Math.min(Math.floor((canvas.width * canvas.height) / 38000), 38)
     for (let i = 0; i < count; i++) {
-      const color = colors[Math.floor(Math.random() * colors.length)]
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         vx: (Math.random() - 0.5) * 0.3,
         vy: (Math.random() - 0.5) * 0.3,
         radius: Math.random() * 1.6 + 0.8,
-        baseAlpha: Math.random() * 0.3 + 0.15,
-        alpha: Math.random() * 0.3 + 0.15,
-        color
+        baseAlpha: Math.random() * 0.16 + 0.08,
+        alpha: Math.random() * 0.16 + 0.08
       })
     }
   }
@@ -95,7 +89,7 @@ const initCanvas = () => {
 
     // Optimized single-pass line rendering with squared distances
     ctx.beginPath()
-    ctx.strokeStyle = 'rgba(148, 163, 184, 0.08)'
+    ctx.strokeStyle = 'rgba(128, 128, 128, 0.08)'
     ctx.lineWidth = 0.5
     for (let i = 0; i < particles.length; i++) {
       const pi = particles[i]
@@ -114,6 +108,7 @@ const initCanvas = () => {
     ctx.stroke()
 
     // Update and draw particles with minimal canvas context switches
+    ctx.fillStyle = 'rgb(128, 128, 128)'
     for (const p of particles) {
       p.x += p.vx * delta
       p.y += p.vy * delta
@@ -135,12 +130,11 @@ const initCanvas = () => {
       if (mDistSq < mRadiusSq) {
         const factor = 1 - Math.sqrt(mDistSq) / mouse.radius
         currentRadius += factor * 1.5
-        currentAlpha = Math.min(1, p.baseAlpha + factor * 0.5)
+        currentAlpha = Math.min(0.6, p.baseAlpha + factor * 0.25)
       }
 
       ctx.beginPath()
       ctx.arc(p.x, p.y, currentRadius, 0, Math.PI * 2)
-      ctx.fillStyle = p.color
       ctx.globalAlpha = currentAlpha
       ctx.fill()
     }
@@ -208,13 +202,13 @@ onBeforeUnmount(() => {
     <div class="ambient-orb orb-4"></div>
 
     <!-- Particle Canvas -->
-    <canvas ref="canvasRef" class="absolute inset-0 w-full h-full opacity-60"></canvas>
+    <canvas ref="canvasRef" class="ambient-particles absolute inset-0 w-full h-full"></canvas>
 
     <!-- Noise Texture Overlay -->
-    <div class="absolute inset-0 noise-overlay opacity-40"></div>
+    <div class="absolute inset-0 noise-overlay opacity-[0.12]"></div>
 
     <!-- Grid Matrix Lines -->
-    <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
+    <div class="absolute inset-0 bg-grid-pattern opacity-[0.08]"></div>
   </div>
 </template>
 
@@ -224,24 +218,28 @@ onBeforeUnmount(() => {
   border-radius: 9999px;
   filter: blur(100px);
   pointer-events: none;
-  opacity: 0.16;
+  opacity: 0.06;
   contain: paint layout;
   will-change: transform;
   transform: translate3d(0, 0, 0);
 }
 
-[data-theme='corporate'] .ambient-orb,
-[data-theme='cupcake'] .ambient-orb,
-[data-theme='lemonade'] .ambient-orb,
-[data-theme='bumblebee'] .ambient-orb {
-  opacity: 0.10;
-  filter: blur(110px);
+[data-theme='light'] .ambient-orb {
+  opacity: 0.04;
+}
+
+.ambient-particles {
+  opacity: 0.36;
+}
+
+[data-theme='light'] .ambient-particles {
+  opacity: 0.24;
 }
 
 .orb-1 {
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, #38bdf8 0%, rgba(56, 189, 248, 0) 70%);
+  background: radial-gradient(circle, var(--color-primary) 0%, transparent 70%);
   top: -100px;
   left: -80px;
   animation: floatOrb 24s ease-in-out infinite alternate;
@@ -250,7 +248,7 @@ onBeforeUnmount(() => {
 .orb-2 {
   width: 550px;
   height: 550px;
-  background: radial-gradient(circle, #8b5cf6 0%, rgba(139, 92, 246, 0) 70%);
+  background: radial-gradient(circle, var(--color-secondary) 0%, transparent 70%);
   top: 30%;
   right: -150px;
   animation: floatOrb 28s ease-in-out infinite alternate-reverse;
@@ -259,7 +257,7 @@ onBeforeUnmount(() => {
 .orb-3 {
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, #06b6d4 0%, rgba(6, 182, 212, 0) 70%);
+  background: radial-gradient(circle, color-mix(in srgb, var(--color-primary) 20%, var(--color-secondary)) 0%, transparent 70%);
   bottom: 10%;
   left: 5%;
   animation: floatOrb 30s ease-in-out infinite alternate;
@@ -268,7 +266,7 @@ onBeforeUnmount(() => {
 .orb-4 {
   width: 450px;
   height: 450px;
-  background: radial-gradient(circle, #ec4899 0%, rgba(236, 72, 153, 0) 70%);
+  background: radial-gradient(circle, var(--color-secondary) 0%, transparent 70%);
   bottom: -80px;
   right: 10%;
   animation: floatOrb 22s ease-in-out infinite alternate-reverse;
@@ -299,7 +297,7 @@ onBeforeUnmount(() => {
 .bg-grid-pattern {
   background-size: 60px 60px;
   background-image: 
-    linear-gradient(to right, color-mix(in srgb, var(--color-base-content, #fff) 5%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in srgb, var(--color-base-content, #fff) 5%, transparent) 1px, transparent 1px);
+    linear-gradient(to right, color-mix(in srgb, var(--color-base-content) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-base-content) 5%, transparent) 1px, transparent 1px);
 }
 </style>
