@@ -142,7 +142,7 @@ const coreSkills = computed(() => [
                   sizes="256px sm:288px md:320px"
                   loading="lazy"
                   decoding="async"
-                  class="w-full h-full object-cover object-top transition-all duration-700 group-hover:scale-108 filter contrast-[1.03] brightness-[1.02]"
+                  class="w-full h-full object-cover object-top transition-all duration-700 grayscale  group-hover:scale-108 filter contrast-[1.03] brightness-[1.02]"
                 />
 
                 <!-- Portrait Bottom Ambient Shadow Gradient -->
